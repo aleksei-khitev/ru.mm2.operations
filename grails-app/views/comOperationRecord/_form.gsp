@@ -17,12 +17,13 @@
         }
     }
 </script>
+
 <div class="fieldcontain ${hasErrors(bean: comOperationRecordInstance, field: 'fio', 'error')} ">
     <label for="fio">
         <g:message code="comOperationRecord.fio.label" default="ФИО пациента" />
 
     </label>
-    <g:if test="${fio}!=''">
+    <g:if test="${fio}">
         <g:textField name="fio" value="${fio}"/>
     </g:if>
     <g:else>
@@ -46,7 +47,7 @@
 
     </label>
 
-    <g:if test="${diagnoz}!=''">
+    <g:if test="${diagnoz}">
         <g:textField name="diagnoz" value="${diagnoz}"/>
     </g:if>
     <g:else>
@@ -90,7 +91,12 @@
         <g:message code="comOperationRecord.parentfio.label" default="ФИО родителей" />
 
     </label>
-    <g:textField name="parentfio" value="${comOperationRecordInstance?.parentfio}"/>
+    <g:if test="${parentfio}">
+        <g:textField name="parentfio" value="${parentfio}"/>
+    </g:if>
+    <g:else>
+        <g:textField name="parentfio" value="${comOperationRecordInstance?.parentfio}"/>
+    </g:else>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: comOperationRecordInstance, field: 'client_contact', 'error')} ">
@@ -99,7 +105,7 @@
             <g:message code="comOperationRecord.client_contact.label" default="Контакт для связи" />
 
         </label>
-        <g:if test="${client_contact}!=''">
+        <g:if test="${client_contact}">
             <g:phoneWithPattern name="client_contact" value="${client_contact}"/>
         </g:if>
         <g:else>
@@ -114,7 +120,7 @@
         <g:message code="comOperationRecord.oms.label" default="Полис ОМС" />
 
     </label>
-    <g:if test="${oms}!=''">
+    <g:if test="${oms}">
         <g:textField name="oms" value="${oms}"/>
     </g:if>
     <g:else>
@@ -137,7 +143,7 @@
         <span class="required-indicator">*</span>
     </label>
 
-    <g:if test="${doctor_id}!=''">
+    <g:if test="${doctor_id}">
         <g:select id="doctor" name="doctor.id" from="${ru.mm2.operations.Doctor.list()}" optionKey="id" required="" optionValue="fio" value="${doctor_id}" class="many-to-one"/>
     </g:if>
     <g:else>
@@ -150,7 +156,12 @@
         <g:message code="comOperationRecord.date_time.label" default="Дата госпитализации" />
         <span class="required-indicator">*</span>
     </label>
-    <g:datePicker name="date_time" precision="day"  value="${date}"  />
+    <g:if test="${date}">
+        <g:datePicker name="date_time" precision="day"  value="${date}"  />
+    </g:if>
+    <g:else>
+        <g:datePicker name="date_time" precision="day"  value="${comOperationRecordInstance?.date_time}"  />
+    </g:else>
 </div>
 <div class="fieldcontain ${hasErrors(bean: comOperationRecordInstance, field: 'isConfirm', 'error')} ">
     <gui:toolTip text="Если визит подтвержден, отметьте поле галочкой">
@@ -167,4 +178,3 @@
     </label>
     <g:textField name="prim" value="${comOperationRecordInstance?.prim}"/>
 </div>
-

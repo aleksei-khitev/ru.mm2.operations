@@ -21,7 +21,12 @@
         <g:message code="comConsultationRecord.date_time.label" default="Дата консультации" />
         <span class="required-indicator">*</span>
     </label>
-    <g:datePicker name="date_time" precision="day"  value="${date}"  />
+    <g:if test="${date}">
+        <g:datePicker name="date_time" precision="day"  value="${date}"  />
+    </g:if>
+    <g:else>
+        <g:datePicker name="date_time" precision="day"  value="${comConsultationRecordInstance?.date_time}"  />
+    </g:else>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: comConsultationRecordInstance, field: 'diagnoz', 'error')} ">
@@ -60,8 +65,8 @@
 <div class="fieldcontain ${hasErrors(bean: comConsultationRecordInstance, field: 'parentfio', 'error')} ">
     <label for="parentfio">
         <g:message code="comConsultationRecord.parentfio.label" default="ФИО родителей" />
-
     </label>
+
     <g:textField name="parentfio" value="${comConsultationRecordInstance?.parentfio}"/>
 </div>
 

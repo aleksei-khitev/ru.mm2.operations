@@ -28,28 +28,23 @@ class OperationRecordController {
 
     def create() {
         DateFormat dateFormat
-        String fio=""
-        String diagnoz=""
-        Date birthday = new Date()
-        String oms
-        String client_contact
-        String doctor_id
-        String parentfio
+        def map = [:]
         if(params.from_consult){
             dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", new Locale("en","EN"))
-            fio=params.fio
-            diagnoz=params.diagnoz
-            oms=params.oms
-            birthday=dateFormat.parse(params.birthday)
-            client_contact=params.client_contact
-            doctor_id=params.doctor_id
-            parentfio=params.parentfio
+            map.fio=params.fio
+            map.diagnoz=params.diagnoz
+            map.oms=params.oms
+            map.birthday=dateFormat.parse(params.birthday)
+            map.client_contact=params.client_contact
+            map.doctor_id=params.doctor_id
+            map.parentfio=params.parentfio
         }else{
             dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", new Locale("en","EN"))
         }
         Date date = dateFormat.parse(params.date_time);
         List<OperationRecord> operationRecord = OperationRecord.findAllByDate_timeBetween((date-1),date)
-        respond operationRecord, model: [operationRecordInstanceCount: OperationRecord.count(), date:date, fio:fio, diagnoz:diagnoz, birthday:birthday, oms:oms, client_contact:client_contact, doctor_id:doctor_id, parentfio:parentfio]
+        map.comOperationRecordInstanceCount=ComOperationRecord.count()
+        respond operationRecord, model: map
     }
 
     @Transactional

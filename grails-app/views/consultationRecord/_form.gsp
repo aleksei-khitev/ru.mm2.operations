@@ -21,7 +21,12 @@
         <g:message code="consultationRecord.date_time.label" default="Дата консультации" />
         <span class="required-indicator">*</span>
     </label>
-    <g:datePicker name="date_time" precision="day"  value="${date}"  />
+    <g:if test="${date}">
+        <g:datePicker name="date_time" precision="day"  value="${date}"  />
+    </g:if>
+    <g:else>
+        <g:datePicker name="date_time" precision="day"  value="${consultationRecordInstance?.date_time}"  />
+    </g:else>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: consultationRecordInstance, field: 'diagnoz', 'error')} ">

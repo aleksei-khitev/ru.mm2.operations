@@ -22,7 +22,7 @@
         <g:message code="operationRecord.fio.label" default="ФИО пациента" />
 
     </label>
-    <g:if test="${fio}!=''">
+    <g:if test="${fio}">
         <g:textField name="fio" value="${fio}"/>
     </g:if>
     <g:else>
@@ -46,7 +46,7 @@
 
     </label>
 
-    <g:if test="${diagnoz}!=''">
+    <g:if test="${diagnoz}">
         <g:textField name="diagnoz" value="${diagnoz}"/>
     </g:if>
     <g:else>
@@ -90,7 +90,12 @@
         <g:message code="operationRecord.parentfio.label" default="ФИО родителей" />
 
     </label>
-    <g:textField name="parentfio" value="${operationRecordInstance?.parentfio}"/>
+    <g:if test="${parentfio}">
+        <g:textField name="parentfio" value="${parentfio}"/>
+    </g:if>
+    <g:else>
+        <g:textField name="parentfio" value="${operationRecordInstance?.parentfio}"/>
+    </g:else>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: operationRecordInstance, field: 'client_contact', 'error')} ">
@@ -99,7 +104,7 @@
             <g:message code="operationRecord.client_contact.label" default="Контакт для связи" />
 
         </label>
-        <g:if test="${client_contact}!=''">
+        <g:if test="${client_contact}">
             <g:phoneWithPattern name="client_contact" value="${client_contact}"/>
         </g:if>
         <g:else>
@@ -112,15 +117,13 @@
 <div class="fieldcontain ${hasErrors(bean: operationRecordInstance, field: 'oms', 'error')} ">
     <label for="oms">
         <g:message code="operationRecord.oms.label" default="Полис ОМС" />
-
     </label>
-    <g:if test="${oms}!=''">
+    <g:if test="${oms}">
         <g:textField name="oms" value="${oms}"/>
     </g:if>
     <g:else>
         <g:textField name="oms" value="${operationRecordInstance?.oms}"/>
     </g:else>
-
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: operationRecordInstance, field: 'operation', 'error')} required">
@@ -137,7 +140,7 @@
         <span class="required-indicator">*</span>
     </label>
 
-    <g:if test="${doctor_id}!=''">
+    <g:if test="${doctor_id}">
         <g:select id="doctor" name="doctor.id" from="${ru.mm2.operations.Doctor.list()}" optionKey="id" required="" optionValue="fio" value="${doctor_id}" class="many-to-one"/>
     </g:if>
     <g:else>
@@ -150,7 +153,12 @@
         <g:message code="operationRecord.date_time.label" default="Дата госпитализации" />
         <span class="required-indicator">*</span>
     </label>
-    <g:datePicker name="date_time" precision="day"  value="${date}"  />
+    <g:if test="${date}">
+        <g:datePicker name="date_time" precision="day"  value="${date}"  />
+    </g:if>
+    <g:else>
+        <g:datePicker name="date_time" precision="day"  value="${operationRecordInstance?.date_time}"  />
+    </g:else>
 </div>
 <div class="fieldcontain ${hasErrors(bean: operationRecordInstance, field: 'isConfirm', 'error')} ">
     <gui:toolTip text="Если визит подтвержден, отметьте поле галочкой">

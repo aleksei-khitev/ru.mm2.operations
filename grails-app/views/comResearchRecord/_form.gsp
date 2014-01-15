@@ -22,7 +22,12 @@
 		<g:message code="comResearchRecord.date_time.label" default="Дата исследования" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="date_time" precision="day"  value="${comResearchRecordInstance?.date_time}"  />
+    <g:if test="${date}">
+        <g:datePicker name="date_time" precision="day"  value="${date}"  />
+    </g:if>
+    <g:else>
+        <g:datePicker name="date_time" precision="day"  value="${comResearchRecordInstance?.date_time}"  />
+    </g:else>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: comResearchRecordInstance, field: 'research', 'error')} required">
