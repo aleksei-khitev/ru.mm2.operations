@@ -22,10 +22,10 @@
         <span class="required-indicator">*</span>
     </label>
     <g:if test="${date}">
-        <g:datePicker name="date_time" precision="day"  value="${date}"  />
+        <g:datePicker name="date_time" value="${date}"  />
     </g:if>
     <g:else>
-        <g:datePicker name="date_time" precision="day"  value="${comConsultationRecordInstance?.date_time}"  />
+        <g:datePicker name="date_time"  value="${comConsultationRecordInstance?.date_time}"  />
     </g:else>
 </div>
 

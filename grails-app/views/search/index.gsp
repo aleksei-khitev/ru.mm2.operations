@@ -38,7 +38,7 @@
                             </td>
                             <td>${result.diagnoz}</td>
                             <td>${result.doctor?.fio}</td>
-                            <td>${result.date_time}</td>
+                            <td><g:formatDate date="${result?.date_time}" /></td>
                             <td>${result.formattedPhone}</td>
                             <td>${result.prim}</td>
                     </tbody>
@@ -71,7 +71,7 @@
         </td>
         <td>${result.diagnoz}</td>
         <td>${result.doctor?.fio}</td>
-        <td>${result.date_time}</td>
+        <td><g:formatDate date="${result?.date_time}" /></td>
         <td>${result.formattedPhone}</td>
         <td>${result.prim}</td>
         </tbody>
