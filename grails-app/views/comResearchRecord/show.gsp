@@ -32,7 +32,7 @@
 				<li class="fieldcontain">
 					<span id="birthday-label" class="property-label"><g:message code="comResearchRecord.birthday.label" default="Дата рождения" /></span>
 					
-						<span class="property-value" aria-labelledby="birthday-label"><g:formatDate format="dd.MM.yyyy" date="${comResearchRecordInstance?.birthday}" /></span>
+						<span class="property-value" aria-labelledby="birthday-label"><g:formatDate date="${comResearchRecordInstance?.birthday}" /></span>
 					
 				</li>
 				</g:if>
@@ -50,7 +50,7 @@
 				<li class="fieldcontain">
 					<span id="date_time-label" class="property-label"><g:message code="comResearchRecord.date_time.label" default="Дата исследования" /></span>
 					
-						<span class="property-value" aria-labelledby="date_time-label"><g:formatDate format="dd.MM.yyyy" date="${comResearchRecordInstance?.date_time}" /></span>
+						<span class="property-value" aria-labelledby="date_time-label"><g:formatDate date="${comResearchRecordInstance?.date_time}" /></span>
 					
 				</li>
 				</g:if>

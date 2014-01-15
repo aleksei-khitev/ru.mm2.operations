@@ -239,7 +239,7 @@
                         <td><g:link action="show" id="${operationRecordInstance.id}">${fieldValue(bean: operationRecordInstance, field: "fio")}</g:link></td>
                         <td>"${operationRecordInstance?.operation?.name }"</td>
                         <td>"${operationRecordInstance?.doctor?.fio }"</td>
-                        <td><g:formatDate format="dd.MM.yyyy" date="${operationRecordInstance?.birthday}" /></td>
+                        <td><g:formatDate date="${operationRecordInstance?.birthday}" /></td>
                         <td><g:checkBox name="isConfirm " value="${operationRecordInstance?.isConfirm }" /></td>
                         <td>"${operationRecordInstance?.prim }"</td>
                     </tr>
@@ -249,7 +249,7 @@
                         <td><g:link action="show" id="${operationRecordInstance.id}">${fieldValue(bean: operationRecordInstance, field: "fio")}</g:link></td>
                         <td>"${operationRecordInstance?.operation?.name }"</td>
                         <td>"${operationRecordInstance?.doctor?.fio }"</td>
-                        <td><g:formatDate format="dd.MM.yyyy" date="${operationRecordInstance?.birthday}" /></td>
+                        <td><g:formatDate date="${operationRecordInstance?.birthday}" /></td>
                         <td><g:checkBox name="isConfirm " value="${operationRecordInstance?.isConfirm }" /></td>
                         <td>"${operationRecordInstance?.prim }"</td>
                     </tr>

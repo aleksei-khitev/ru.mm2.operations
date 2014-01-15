@@ -19,16 +19,7 @@ class ComOperationRecordController {
     }
 
     def show(ComOperationRecord comOperationRecordInstance) {
-        String formatted_phone=""
-        String temp = comOperationRecordInstance.client_contact
-        if(temp.size()==7){
-            formatted_phone="(812) "+temp.substring(0,3)+" - "+temp.substring(3,5)+" - "+temp.substring(5,7)
-        }else if(temp.size()<10){
-            formatted_phone="Неправильно набран номер. длинна может быть либо 7, либо 10 цифр"
-        }else{
-            formatted_phone="+7 ("+temp.substring(0,3)+") "+temp.substring(3,6)+" - "+temp.substring(6,8)+" - "+temp.substring(8,10)
-        }
-        respond comOperationRecordInstance, model: [formatted_phone:formatted_phone]
+        respond comOperationRecordInstance
     }
 
     def detailed() {

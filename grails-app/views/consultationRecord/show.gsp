@@ -41,7 +41,7 @@
             <li class="fieldcontain">
                 <span id="birthday-label" class="property-label"><g:message code="consultationRecord.birthday.label" default="Дата рождения пациента" /></span>
 
-                <span class="property-value" aria-labelledby="birthday-label"><g:formatDate format="dd.MM.yyyy" date="${consultationRecordInstance?.birthday}" /></span>
+                <span class="property-value" aria-labelledby="birthday-label"><g:formatDate date="${consultationRecordInstance?.birthday}" /></span>
 
             </li>
         </g:if>
@@ -50,7 +50,7 @@
             <li class="fieldcontain">
                 <span id="date_time-label" class="property-label"><g:message code="consultationRecord.date_time.label" default="Дата консультации" /></span>
 
-                <span class="property-value" aria-labelledby="date_time-label"><g:formatDate format="dd.MM.yyyy" date="${consultationRecordInstance?.date_time}" /></span>
+                <span class="property-value" aria-labelledby="date_time-label"><g:formatDate date="${consultationRecordInstance?.date_time}" /></span>
 
             </li>
         </g:if>
@@ -86,7 +86,7 @@
             <li class="fieldcontain">
                 <span id="client_contact-label" class="property-label"><g:message code="consultationRecord.client_contact.label" default="Контакт для связи" /></span>
 
-                <span class="property-value" aria-labelledby="client_contact-label"><input type="text" value="${formatted_phone}" style="border: none" size="100"/></span>
+                <span class="property-value" aria-labelledby="client_contact-label"><g:fieldValue bean="${consultationRecordInstance}" field="formattedPhone"/></span>
 
             </li>
         </g:if>

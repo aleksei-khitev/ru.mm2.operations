@@ -161,7 +161,7 @@
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                 <td><g:link action="show" id="${comConsultationRecordInstance.id}">${fieldValue(bean: comConsultationRecordInstance, field: "fio")}</g:link></td>
                 <td>"${comConsultationRecordInstance?.doctor?.fio }"</td>
-                <td><g:formatDate format="dd.MM.yyyy" date="${comConsultationRecordInstance?.birthday}" /></td>
+                <td><g:formatDate date="${comConsultationRecordInstance?.birthday}" /></td>
             </tr>
         </g:each>
         </tbody>

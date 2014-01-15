@@ -27,10 +27,10 @@
             <g:each var="i" in="${ (0..<120) }">
                 <g:form>
                     <g:if test="${ru.mm2.operations.ComOperationRecordController.isSanday(new Date()+i)}">
-                        <td style="color: red"><g:formatDate format="EEE dd.MM.yy" date="${new Date()+i}"/></td>
+                        <td style="color: red"><g:formatDate formatName="custom.date.format" date="${new Date()+i}"/></td>
                     </g:if>
                     <g:else>
-                        <td><g:link class="create" action="create" params='[date_time: "${new Date()+i}"]'><g:formatDate format="EEE dd.MM.yy" date="${new Date()+i}"/></g:link></td>
+                        <td><g:link class="create" action="create" params='[date_time: "${new Date()+i}"]'><g:formatDate formatName="custom.date.format" date="${new Date()+i}"/></g:link></td>
                     </g:else>
                 </g:form>
             </g:each>

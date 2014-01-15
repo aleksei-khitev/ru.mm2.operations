@@ -14,6 +14,16 @@ class ComConsultationRecord {
     Boolean isNaprav
     Boolean isPechat
     Boolean isConfirm
+    static transients = ['formattedPhone']
+    String getFormattedPhone(){
+        if(client_contact.size()==7){
+            "(812) ${client_contact.substring(0,3)} - ${client_contact.substring(3,5)} - ${client_contact.substring(5,7)}"
+        }else if(client_contact.size()<10){
+            "Неправильно набран номер. длинна может быть либо 7, либо 10 цифр"
+        }else{
+            "+7 (${client_contact.substring(0,3)}) ${client_contact.substring(3,6)} - ${client_contact.substring(6,8)} - ${client_contact.substring(8,10)}"
+        }
+    }
     static belongsTo = [doctor:Doctor]
     static searchable = true
     static constraints = {

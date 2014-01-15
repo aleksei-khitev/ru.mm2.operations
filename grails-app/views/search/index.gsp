@@ -39,7 +39,7 @@
                             <td>${result.diagnoz}</td>
                             <td>${result.doctor?.fio}</td>
                             <td>${result.date_time}</td>
-                            <td>${result.client_contact}</td>
+                            <td>${result.formattedPhone}</td>
                             <td>${result.prim}</td>
                     </tbody>
                 </div>
@@ -72,7 +72,7 @@
         <td>${result.diagnoz}</td>
         <td>${result.doctor?.fio}</td>
         <td>${result.date_time}</td>
-        <td>${result.client_contact}</td>
+        <td>${result.formattedPhone}</td>
         <td>${result.prim}</td>
         </tbody>
         </div>
@@ -104,8 +104,8 @@
         </td>
         <td>${result.diagnoz}</td>
         <td>${result.doctor?.fio}</td>
-        <td><g:formatDate format="dd.MM.yyyy" date="${result?.date_time}" /></td>
-        <td>${result.client_contact}</td>
+        <td><g:formatDate date="${result?.date_time}" /></td>
+        <td>${result.formattedPhone}</td>
         <td>${result.prim}</td>
         </tbody>
         </div>
@@ -137,8 +137,8 @@
             </td>
             <td>${result.diagnoz}</td>
             <td>${result.doctor?.fio}</td>
-            <td><g:formatDate format="dd.MM.yyyy" date="${result?.date_time}" /></td>
-            <td>${result.client_contact}</td>
+            <td><g:formatDate date="${result?.date_time}" /></td>
+            <td>${result.formattedPhone}</td>
             <td>${result.prim}</td>
             </tbody>
             </div>
@@ -168,7 +168,7 @@
         </td>
         <td>${result?.research?.name}</td>
         <td>${result?.date_time}</td>
-        <td><g:formatDate format="dd.MM.yyyy" date="${result?.birthday}" /></td>
+        <td><g:formatDate date="${result?.birthday}" /></td>
         </tbody>
         </div>
     </g:each>

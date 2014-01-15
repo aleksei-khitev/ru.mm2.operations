@@ -41,7 +41,7 @@
             <li class="fieldcontain">
                 <span id="birthday-label" class="property-label"><g:message code="comOperationRecord.birthday.label" default="Дата рождения пациента" /></span>
 
-                <span class="property-value" aria-labelledby="birthday-label"><g:formatDate format="dd.MM.yyyy" date="${comOperationRecordInstance?.birthday}" /></span>
+                <span class="property-value" aria-labelledby="birthday-label"><g:formatDate date="${comOperationRecordInstance?.birthday}" /></span>
 
             </li>
         </g:if>
@@ -109,7 +109,7 @@
             <li class="fieldcontain">
                 <span id="client_contact-label" class="property-label"><g:message code="comOperationRecord.client_contact.label" default="Контакт для связи" /></span>
 
-                <span class="property-value" aria-labelledby="client_contact-label"><input type="text" value="${formatted_phone}" style="border: none" size="100"/>
+                <span class="property-value" aria-labelledby="client_contact-label"><g:fieldValue bean="${comOperationRecordInstance}" field="formattedPhone"/>
                 </span>
 
             </li>
@@ -146,7 +146,7 @@
             <li class="fieldcontain">
                 <span id="date_time-label" class="property-label"><g:message code="comOperationRecord.date_time.label" default="Дата госпитализации" /></span>
 
-                <span class="property-value" aria-labelledby="date_time-label"><g:formatDate format="dd.MM.yyyy" date="${comOperationRecordInstance?.date_time}" /></span>
+                <span class="property-value" aria-labelledby="date_time-label"><g:formatDate date="${comOperationRecordInstance?.date_time}" /></span>
 
             </li>
         </g:if>
