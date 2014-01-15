@@ -127,7 +127,6 @@
                             <g:message code="operationRecord.parentfio.label" default="ФИО родителей" />
 
                         </label>
-                        <g:textField name="parentfio" value="${operationRecordInstance?.parentfio}"/>
                         <g:if test="${parentfio}!=''">
                             <g:textField name="parentfio" value="${parentfio}"/>
                         </g:if>
