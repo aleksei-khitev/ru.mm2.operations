@@ -24,12 +24,7 @@
         <thead>
         <tr>
             <g:each var="i" in="${ (0..<120) }">
-                <g:if test="${ru.mm2.operations.ComConsultationRecordController.isSanday(new Date()+i)}">
-                    <td style="color: red"><g:formatDate formatName="custom.date.format" date="${new Date()+i}"/></td>
-                </g:if>
-                <g:else>
-                    <td><g:link class="create" action="create" params='[date_time: "${new Date()+i}"]'><g:formatDate formatName="custom.date.format" date="${new Date()+i}"/></g:link></td>
-                </g:else>
+                <g:workOrSunday date="${new Date()+i}"/>
             </g:each>
         </tr>
         </thead>
@@ -37,12 +32,8 @@
         <tr>
             <g:each var="i" in="${ (0..<120) }">
                 <td>
-                    <g:each in="${ru.mm2.operations.ComConsultationRecordController.collectLessTreeYears(new Date()+i)}" var="v">
-                        <img src="${resource(dir: 'images', file: 'type1.png')}" alt="До 3 лет"/><br>
-                    </g:each>
-                    <g:each in="${ru.mm2.operations.ComConsultationRecordController.collectOthers(new Date()+i)}" var="v">
-                        <img src="${resource(dir: 'images', file: 'type3.png')}" alt="До 3 лет"/><br>
-                    </g:each>
+                    <g:lessTreeYearsImages domain="ComConsultationRecord" date="${new Date()+i}"/>
+                    <g:notLessImages domain="ComConsultationRecord" date="${new Date()+i}"/>
                 </td>
             </g:each>
         </tr>

@@ -53,7 +53,7 @@
         <label for="client_contact">
             <g:message code="consultationRecord.client_contact.label" default="Контакт для связи" />
         </label>
-        <g:textField name="client_contact" value="${consultationRecordInstance?.client_contact}"  pattern="[0-9]{7,10}"/>
+        <g:phoneWithPattern name="client_contact" value="${consultationRecordInstance?.client_contact}"/>
     </gui:toolTip>
 </div>
 

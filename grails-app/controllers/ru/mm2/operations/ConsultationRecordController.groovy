@@ -105,38 +105,4 @@ class ConsultationRecordController {
             '*' { render status: NOT_FOUND }
         }
     }
-
-    def static collectLessTreeYears(Date date){
-        List<ConsultationRecord> list = (ConsultationRecord.findAllByDate_timeBetween((date-1),date))
-        List<ConsultationRecord> result = new ArrayList<ConsultationRecord>()
-
-        for(ConsultationRecord consultationRecord : list){
-                if(((new Date()-consultationRecord.birthday)/365)<3){
-                    result.add(consultationRecord)
-                }
-        }
-        return result
-    }
-
-    def static collectOthers(Date date){
-        List<ConsultationRecord> list = (ConsultationRecord.findAllByDate_timeBetween((date-1),date))
-        List<ConsultationRecord> result = new ArrayList<ConsultationRecord>()
-        for(ConsultationRecord consultationRecord : list){
-                if(((new Date()-consultationRecord.birthday)/365)>=3){
-                    result.add(consultationRecord)
-                }
-        }
-        return result
-    }
-
-    def static isSanday(Date date){
-        SimpleDateFormat df = new SimpleDateFormat( "dd/MM/yy" );
-        df.applyPattern( "EEE" );
-        String dayOfWeek = df.format( date )
-        if(dayOfWeek=="Вс"){
-            return true
-        }else{
-            return false
-        }
-    }
 }

@@ -141,57 +141,5 @@ class ComOperationRecordController {
         }
         return result
     }
-
-    def static collectLessTreeYears(Date date){
-        List<ComOperationRecord> list = (ComOperationRecord.findAllByDate_timeBetween((date-1),date))
-        List<ComOperationRecord> result = new ArrayList<ComOperationRecord>()
-
-        for(ComOperationRecord comOperationRecords : list){
-            if((!comOperationRecords.isPatology)){
-                if(((new Date()-comOperationRecords.birthday)/365)<3){
-                    result.add(comOperationRecords)
-                }
-            }
-        }
-        return result
-    }
-
-    def static collectOthers(Date date){
-        List<ComOperationRecord> list = (ComOperationRecord.findAllByDate_timeBetween((date-1),date))
-        List<ComOperationRecord> result = new ArrayList<ComOperationRecord>()
-        for(ComOperationRecord comOperationRecords : list){
-            if(!comOperationRecords.isPatology){
-                if(((new Date()-comOperationRecords.birthday)/365)>=3){
-                    result.add(comOperationRecords)
-                }
-            }
-        }
-        return result
-    }
-
-    def static isSanday(Date date){
-        SimpleDateFormat df = new SimpleDateFormat( "dd/MM/yy" );
-        df.applyPattern( "EEE" );
-        String dayOfWeek = df.format( date )
-        if(dayOfWeek=="Вс"){
-            return true
-        }else{
-            return false
-        }
-    }
-
-    def search = {
-        def query = params.q
-        println query
-        if (!query) {
-            return [:]
-        }
-        try {
-            def searchResult = ComOperationRecord.search(query, params)
-            return [searchResult: searchResult]
-        } catch (e) {
-            return [searchError: true]
-        }
-    }
 }
 

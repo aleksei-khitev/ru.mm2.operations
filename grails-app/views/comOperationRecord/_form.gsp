@@ -100,10 +100,10 @@
 
         </label>
         <g:if test="${client_contact}!=''">
-            <g:textField name="client_contact" value="${client_contact}"  pattern="[0-9]{7,10}"/>
+            <g:phoneWithPattern name="client_contact" value="${client_contact}"/>
         </g:if>
         <g:else>
-            <g:textField name="client_contact" value="${comOperationRecordInstance?.client_contact}"  pattern="[0-9]{7,10}"/>
+            <g:phoneWithPattern name="client_contact" value="${comOperationRecordInstance?.client_contact}"/>
         </g:else>
     </gui:toolTip>
 

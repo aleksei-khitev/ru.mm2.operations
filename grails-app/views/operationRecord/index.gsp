@@ -26,12 +26,7 @@
             <tr>
                 <g:each var="i" in="${ (0..<120) }">
                     <g:form>
-                        <g:if test="${ru.mm2.operations.OperationRecordController.isSanday(new Date()+i)}">
-                            <td style="color: red"><g:formatDate formatName="custom.date.format" date="${new Date()+i}"/></td>
-                        </g:if>
-                        <g:else>
-                            <td><g:link class="create" action="create" params='[date_time: "${new Date()+i}"]'><g:formatDate formatName="custom.date.format" date="${new Date()+i}"/></g:link></td>
-                        </g:else>
+                        <g:workOrSunday date="${new Date()+i}"/>
                     </g:form>
                 </g:each>
             </tr>
@@ -40,15 +35,9 @@
             <tr>
                 <g:each var="i" in="${ (0..<120) }">
                     <td>
-                        <g:each in="${ru.mm2.operations.OperationRecordController.collectPatologies(new Date()+i)}" var="v">
-                            <img src="${resource(dir: 'images', file: 'type2.png')}" alt="Патология"/><br>
-                        </g:each>
-                        <g:each in="${ru.mm2.operations.OperationRecordController.collectLessTreeYears(new Date()+i)}" var="v">
-                            <img src="${resource(dir: 'images', file: 'type1.png')}" alt="До 3 лет"/><br>
-                        </g:each>
-                        <g:each in="${ru.mm2.operations.OperationRecordController.collectOthers(new Date()+i)}" var="v">
-                            <img src="${resource(dir: 'images', file: 'type3.png')}" alt="До 3 лет"/><br>
-                        </g:each>
+                        <g:patologyRecordImages domain="OperationRecord" date="${new Date()+i}"/>
+                        <g:lessTreeYearsImages domain="OperationRecord" date="${new Date()+i}"/>
+                        <g:notLessNotPatologyImages domain="OperationRecord" date="${new Date()+i}"/>
                     </td>
                 </g:each>
             </tr>
