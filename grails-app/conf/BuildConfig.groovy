@@ -62,6 +62,8 @@ grails.project.dependency.resolution = {
         compile ":grails-ui:1.2.3"
         compile ":compass-sass:0.7"
         compile ":searchable:0.6.5"
+        compile ':quartz:1.0-RC11'
+        compile ":mail:1.0.1"
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"
         runtime ":database-migration:1.3.8"
