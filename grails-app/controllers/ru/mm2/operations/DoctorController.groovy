@@ -1,15 +1,17 @@
 package ru.mm2.operations
 
-
+import org.springframework.security.access.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+
 
 @Transactional(readOnly = true)
 class DoctorController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_ROOT'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Doctor.list(params), model: [doctorInstanceCount: Doctor.count()]
