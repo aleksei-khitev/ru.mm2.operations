@@ -1,5 +1,7 @@
 package ru.mm2.operations
 
+import org.springframework.security.access.annotation.Secured
+
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 
@@ -11,15 +13,18 @@ class ComResearchRecordController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond ComResearchRecord.list(params), model: [comResearchRecordInstanceCount: ComResearchRecord.count()]
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def show(ComResearchRecord comResearchRecordInstance) {
         respond comResearchRecordInstance
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def create() {
         DateFormat dateFormat
         dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", new Locale("en","EN"))
@@ -28,6 +33,7 @@ class ComResearchRecordController {
         respond comResearchRecord, model: [comResearchRecordInstanceCount: ComResearchRecord.count(), date:date]
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     @Transactional
     def save(ComResearchRecord comResearchRecordInstance) {
         if (comResearchRecordInstance == null) {
@@ -51,10 +57,12 @@ class ComResearchRecordController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def edit(ComResearchRecord comResearchRecordInstance) {
         respond comResearchRecordInstance
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     @Transactional
     def update(ComResearchRecord comResearchRecordInstance) {
         if (comResearchRecordInstance == null) {
@@ -78,6 +86,7 @@ class ComResearchRecordController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     @Transactional
     def delete(ComResearchRecord comResearchRecordInstance) {
 
@@ -97,6 +106,7 @@ class ComResearchRecordController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     protected void notFound() {
         request.withFormat {
             form {
@@ -107,6 +117,7 @@ class ComResearchRecordController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def static isSanday(Date date){
         SimpleDateFormat df = new SimpleDateFormat( "dd/MM/yy" );
         df.applyPattern( "EEE" );
@@ -118,12 +129,4 @@ class ComResearchRecordController {
         }
     }
 
-    def static collectOthers(Date date){
-        List<ComResearchRecord> list = (ComResearchRecord.findAllByDate_timeBetween((date-1),date))
-        List<ComResearchRecord> result = new ArrayList<ComResearchRecord>()
-        for(ComResearchRecord comResearchRecord : list){
-             result.add(comResearchRecord)
-        }
-        return result
-    }
 }

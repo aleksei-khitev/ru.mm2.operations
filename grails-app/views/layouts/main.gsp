@@ -24,7 +24,7 @@
             <g:link controller="login" action="auth">Войти</g:link>
         </sec:ifNotLoggedIn>
         <sec:ifLoggedIn>
-            Вы вошли как <sec:username /><br/>
+            Вы вошли как <b style="font-size: 15px"><sec:username/></b><br/>
             <g:link controller="logout">Выход</g:link>
         </sec:ifLoggedIn>
     </div>

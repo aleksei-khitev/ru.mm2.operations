@@ -1,8 +1,11 @@
 package ru.mm2.operations
 
+import org.springframework.security.access.annotation.Secured
+
 class SearchController {
 
-    def index = {
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
+    def index() {
         def query = params.q
         if (!query) {
             return [:]

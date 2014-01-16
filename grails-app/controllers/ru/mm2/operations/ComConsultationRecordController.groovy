@@ -1,5 +1,7 @@
 package ru.mm2.operations
 
+import org.springframework.security.access.annotation.Secured
+
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 
@@ -11,15 +13,18 @@ class ComConsultationRecordController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond ComConsultationRecord.list(params), model: [comConsultationRecordInstanceCount: ComConsultationRecord.count()]
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def show(ComConsultationRecord operationRecordInstance) {
         respond operationRecordInstance
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def create() {
         DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", new Locale("en","EN"))
         Date date = dateFormat.parse(params.date_time);
@@ -27,6 +32,7 @@ class ComConsultationRecordController {
         respond comConsultationRecord, model: [comConsultationRecordInstanceCount: ComConsultationRecord.count(), date:date]
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     @Transactional
     def save(ComConsultationRecord comConsultationRecordInstance) {
         if (comConsultationRecordInstance == null) {
@@ -50,10 +56,12 @@ class ComConsultationRecordController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def edit(ComConsultationRecord comConsultationRecordInstance) {
         respond comConsultationRecordInstance
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     @Transactional
     def update(ComConsultationRecord comConsultationRecordInstance) {
         if (comConsultationRecordInstance == null) {
@@ -77,6 +85,7 @@ class ComConsultationRecordController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     @Transactional
     def delete(ComConsultationRecord comConsultationRecordInstance) {
 
@@ -96,6 +105,7 @@ class ComConsultationRecordController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     protected void notFound() {
         request.withFormat {
             form {

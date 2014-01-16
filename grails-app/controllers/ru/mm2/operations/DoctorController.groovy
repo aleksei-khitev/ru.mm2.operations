@@ -11,20 +11,23 @@ class DoctorController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    @Secured(['ROLE_ROOT'])
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Doctor.list(params), model: [doctorInstanceCount: Doctor.count()]
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def show(Doctor doctorInstance) {
         respond doctorInstance
     }
 
+    @Secured(['ROLE_ROOT'])
     def create() {
         respond new Doctor(params)
     }
 
+    @Secured(['ROLE_ROOT'])
     @Transactional
     def save(Doctor doctorInstance) {
         if (doctorInstance == null) {
@@ -48,10 +51,12 @@ class DoctorController {
         }
     }
 
+    @Secured(['ROLE_ROOT'])
     def edit(Doctor doctorInstance) {
         respond doctorInstance
     }
 
+    @Secured(['ROLE_ROOT'])
     @Transactional
     def update(Doctor doctorInstance) {
         if (doctorInstance == null) {
@@ -75,6 +80,7 @@ class DoctorController {
         }
     }
 
+    @Secured(['ROLE_ROOT'])
     @Transactional
     def delete(Doctor doctorInstance) {
 
@@ -94,6 +100,7 @@ class DoctorController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     protected void notFound() {
         request.withFormat {
             form {

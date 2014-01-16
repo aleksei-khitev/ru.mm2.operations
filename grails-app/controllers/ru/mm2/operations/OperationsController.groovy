@@ -1,6 +1,6 @@
 package ru.mm2.operations
 
-
+import org.springframework.security.access.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -10,19 +10,23 @@ class OperationsController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Operations.list(params), model: [operationsInstanceCount: Operations.count()]
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def show(Operations operationsInstance) {
         respond operationsInstance
     }
 
+    @Secured(['ROLE_ROOT'])
     def create() {
         respond new Operations(params)
     }
 
+    @Secured(['ROLE_ROOT'])
     @Transactional
     def save(Operations operationsInstance) {
         if (operationsInstance == null) {
@@ -46,10 +50,12 @@ class OperationsController {
         }
     }
 
+    @Secured(['ROLE_ROOT'])
     def edit(Operations operationsInstance) {
         respond operationsInstance
     }
 
+    @Secured(['ROLE_ROOT'])
     @Transactional
     def update(Operations operationsInstance) {
         if (operationsInstance == null) {
@@ -73,6 +79,7 @@ class OperationsController {
         }
     }
 
+    @Secured(['ROLE_ROOT'])
     @Transactional
     def delete(Operations operationsInstance) {
 
@@ -92,6 +99,7 @@ class OperationsController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     protected void notFound() {
         request.withFormat {
             form {

@@ -1,6 +1,6 @@
 package ru.mm2.operations
 
-
+import org.springframework.security.access.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -13,19 +13,23 @@ class ComOperationRecordController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond ComOperationRecord.list(params), model: [comOperationRecordInstanceCount: ComOperationRecord.count()]
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def show(ComOperationRecord comOperationRecordInstance) {
         respond comOperationRecordInstance
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def detailed() {
         respond ComOperationRecord.list(params)
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def create() {
         DateFormat dateFormat
         def map = [:]
@@ -47,6 +51,7 @@ class ComOperationRecordController {
         respond comOperationRecord, model: map
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     @Transactional
     def save(ComOperationRecord comOperationRecordInstance) {
         if (comOperationRecordInstance == null) {
@@ -70,10 +75,12 @@ class ComOperationRecordController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     def edit(ComOperationRecord comOperationRecordInstance) {
         respond comOperationRecordInstance
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     @Transactional
     def update(ComOperationRecord comOperationRecordInstance) {
         if (comOperationRecordInstance == null) {
@@ -97,6 +104,7 @@ class ComOperationRecordController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     @Transactional
     def delete(ComOperationRecord comOperationRecordInstance) {
 
@@ -116,6 +124,7 @@ class ComOperationRecordController {
         }
     }
 
+    @Secured(['ROLE_OPER','ROLE_ROOT'])
     protected void notFound() {
         request.withFormat {
             form {
@@ -124,17 +133,6 @@ class ComOperationRecordController {
             }
             '*' { render status: NOT_FOUND }
         }
-    }
-
-    def static collectPatologies(Date date){
-        List<ComOperationRecord> list = (ComOperationRecord.findAllByDate_timeBetween((date-1),date))
-        List<ComOperationRecord> result = new ArrayList<ComOperationRecord>()
-        for(ComOperationRecord comOperationRecords : list){
-            if(comOperationRecords.isPatology){
-                result.add(comOperationRecords)
-            }
-        }
-        return result
     }
 }
 
