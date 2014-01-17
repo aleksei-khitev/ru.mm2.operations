@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="3" failures="1" hostname="k423.bn.local" name="ru.mm2.operations.OperationRecordControllerSpec" tests="7" time="1.734" timestamp="2014-01-15T08:51:48">
+  <properties />
+  <testcase classname="ru.mm2.operations.OperationRecordControllerSpec" name="Test the index action returns the correct model" time="0.474" />
+  <testcase classname="ru.mm2.operations.OperationRecordControllerSpec" name="Test the create action returns the correct model" time="0.111">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at java.text.SimpleDateFormat.parse(SimpleDateFormat.java:1380)
+	at java.text.DateFormat.parse(DateFormat.java:355)
+	at ru.mm2.operations.OperationRecordController.$tt__create(OperationRecordController.groovy:50)
+	at ru.mm2.operations.OperationRecordControllerSpec.Test the create action returns the correct model(OperationRecordControllerSpec.groovy:30)
+</error>
+  </testcase>
+  <testcase classname="ru.mm2.operations.OperationRecordControllerSpec" name="Test the save action correctly persists an instance" time="0.253">
+    <error message="Cannot redirect for object [ru.mm2.operations.OperationRecord : (unsaved)] it is not a domain or has no identifier. Use an explicit redirect instead " type="org.codehaus.groovy.grails.web.servlet.mvc.exceptions.CannotRedirectException">org.codehaus.groovy.grails.web.servlet.mvc.exceptions.CannotRedirectException: Cannot redirect for object [ru.mm2.operations.OperationRecord : (unsaved)] it is not a domain or has no identifier. Use an explicit redirect instead 
+	at ru.mm2.operations.OperationRecordController.tt__save_closure11_closure16(OperationRecordController.groovy:72)
+	at ru.mm2.operations.OperationRecordController.$tt__save(OperationRecordController.groovy:69)
+	at ru.mm2.operations.OperationRecordControllerSpec.Test the save action correctly persists an instance(OperationRecordControllerSpec.groovy:52)
+</error>
+  </testcase>
+  <testcase classname="ru.mm2.operations.OperationRecordControllerSpec" name="Test that the show action returns the correct model" time="0.298" />
+  <testcase classname="ru.mm2.operations.OperationRecordControllerSpec" name="Test that the edit action returns the correct model" time="0.112" />
+  <testcase classname="ru.mm2.operations.OperationRecordControllerSpec" name="Test the update action performs an update on a valid domain instance" time="0.194">
+    <error message="Cannot get property &apos;id&apos; on null object" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot get property &apos;id&apos; on null object
+	at ru.mm2.operations.OperationRecordControllerSpec.Test the update action performs an update on a valid domain instance(OperationRecordControllerSpec.groovy:118)
+</error>
+  </testcase>
+  <testcase classname="ru.mm2.operations.OperationRecordControllerSpec" name="Test that the delete action deletes an instance if it exists" time="0.111">
+    <failure message="Condition not satisfied:&#xa;&#xa;OperationRecord.count() == 1&#xa;                |       |&#xa;                0       false&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+OperationRecord.count() == 1
+                |       |
+                0       false
+
+	at ru.mm2.operations.OperationRecordControllerSpec.Test that the delete action deletes an instance if it exists(OperationRecordControllerSpec.groovy:136)
+</failure>
+  </testcase>
+  <system-out><![CDATA[--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+]]></system-out>
+  <system-err><![CDATA[--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+]]></system-err>
+</testsuite>

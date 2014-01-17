@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="2" failures="1" hostname="k423.bn.local" name="ru.mm2.operations.ResearchControllerSpec" tests="7" time="1.145" timestamp="2014-01-15T08:51:53">
+  <properties />
+  <testcase classname="ru.mm2.operations.ResearchControllerSpec" name="Test the index action returns the correct model" time="0.287" />
+  <testcase classname="ru.mm2.operations.ResearchControllerSpec" name="Test the create action returns the correct model" time="0.078" />
+  <testcase classname="ru.mm2.operations.ResearchControllerSpec" name="Test the save action correctly persists an instance" time="0.177">
+    <error message="Cannot redirect for object [ru.mm2.operations.Research : (unsaved)] it is not a domain or has no identifier. Use an explicit redirect instead " type="org.codehaus.groovy.grails.web.servlet.mvc.exceptions.CannotRedirectException">org.codehaus.groovy.grails.web.servlet.mvc.exceptions.CannotRedirectException: Cannot redirect for object [ru.mm2.operations.Research : (unsaved)] it is not a domain or has no identifier. Use an explicit redirect instead 
+	at ru.mm2.operations.ResearchController.tt__save_closure9_closure14(ResearchController.groovy:43)
+	at ru.mm2.operations.ResearchController.$tt__save(ResearchController.groovy:40)
+	at ru.mm2.operations.ResearchControllerSpec.Test the save action correctly persists an instance(ResearchControllerSpec.groovy:52)
+</error>
+  </testcase>
+  <testcase classname="ru.mm2.operations.ResearchControllerSpec" name="Test that the show action returns the correct model" time="0.062" />
+  <testcase classname="ru.mm2.operations.ResearchControllerSpec" name="Test that the edit action returns the correct model" time="0.115" />
+  <testcase classname="ru.mm2.operations.ResearchControllerSpec" name="Test the update action performs an update on a valid domain instance" time="0.147">
+    <error message="Cannot get property &apos;id&apos; on null object" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot get property &apos;id&apos; on null object
+	at ru.mm2.operations.ResearchControllerSpec.Test the update action performs an update on a valid domain instance(ResearchControllerSpec.groovy:118)
+</error>
+  </testcase>
+  <testcase classname="ru.mm2.operations.ResearchControllerSpec" name="Test that the delete action deletes an instance if it exists" time="0.074">
+    <failure message="Condition not satisfied:&#xa;&#xa;Research.count() == 1&#xa;         |       |&#xa;         0       false&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+Research.count() == 1
+         |       |
+         0       false
+
+	at ru.mm2.operations.ResearchControllerSpec.Test that the delete action deletes an instance if it exists(ResearchControllerSpec.groovy:136)
+</failure>
+  </testcase>
+  <system-out><![CDATA[--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+]]></system-out>
+  <system-err><![CDATA[--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+]]></system-err>
+</testsuite>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" failures="6" hostname="k423.bn.local" name="ru.mm2.operations.ConsultationRecordsControllerSpec" tests="7" time="7.552" timestamp="2014-01-15T08:51:36">
+  <properties />
+  <testcase classname="ru.mm2.operations.ConsultationRecordsControllerSpec" name="Test the index action returns the correct model" time="5.425">
+    <failure message="Condition not satisfied:&#xa;&#xa;model.consultationRecordsInstanceCount == 0&#xa;|     |                                |&#xa;|     null                             false&#xa;[consultationRecordInstanceCount:0, emptyCollection:[]]&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.consultationRecordsInstanceCount == 0
+|     |                                |
+|     null                             false
+[consultationRecordInstanceCount:0, emptyCollection:[]]
+
+	at ru.mm2.operations.ConsultationRecordsControllerSpec.Test the index action returns the correct model(ConsultationRecordsControllerSpec.groovy:25)
+</failure>
+  </testcase>
+  <testcase classname="ru.mm2.operations.ConsultationRecordsControllerSpec" name="Test the create action returns the correct model" time="0.18">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at java.text.SimpleDateFormat.parse(SimpleDateFormat.java:1380)
+	at java.text.DateFormat.parse(DateFormat.java:355)
+	at ru.mm2.operations.ConsultationRecordController.$tt__create(ConsultationRecordController.groovy:25)
+	at ru.mm2.operations.ConsultationRecordsControllerSpec.Test the create action returns the correct model(ConsultationRecordsControllerSpec.groovy:30)
+</error>
+  </testcase>
+  <testcase classname="ru.mm2.operations.ConsultationRecordsControllerSpec" name="Test the save action correctly persists an instance" time="0.193">
+    <failure message="Condition not satisfied:&#xa;&#xa;model.consultationRecordsInstance != null&#xa;|     |                           |&#xa;|     null                        false&#xa;[consultationRecordInstance:ru.mm2.operations.ConsultationRecord : (unsaved)]&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.consultationRecordsInstance != null
+|     |                           |
+|     null                        false
+[consultationRecordInstance:ru.mm2.operations.ConsultationRecord : (unsaved)]
+
+	at ru.mm2.operations.ConsultationRecordsControllerSpec.Test the save action correctly persists an instance(ConsultationRecordsControllerSpec.groovy:44)
+</failure>
+  </testcase>
+  <testcase classname="ru.mm2.operations.ConsultationRecordsControllerSpec" name="Test that the show action returns the correct model" time="0.238">
+    <failure message="Condition not satisfied:&#xa;&#xa;model.consultationRecordsInstance == consultationRecords&#xa;|     |                           |  |&#xa;|     null                        |  ru.mm2.operations.ConsultationRecord : (unsaved)&#xa;|                                 false&#xa;[consultationRecordInstance:ru.mm2.operations.ConsultationRecord : (unsaved)]&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.consultationRecordsInstance == consultationRecords
+|     |                           |  |
+|     null                        |  ru.mm2.operations.ConsultationRecord : (unsaved)
+|                                 false
+[consultationRecordInstance:ru.mm2.operations.ConsultationRecord : (unsaved)]
+
+	at ru.mm2.operations.ConsultationRecordsControllerSpec.Test that the show action returns the correct model(ConsultationRecordsControllerSpec.groovy:73)
+</failure>
+  </testcase>
+  <testcase classname="ru.mm2.operations.ConsultationRecordsControllerSpec" name="Test that the edit action returns the correct model" time="0.141">
+    <failure message="Condition not satisfied:&#xa;&#xa;model.consultationRecordsInstance == consultationRecords&#xa;|     |                           |  |&#xa;|     null                        |  ru.mm2.operations.ConsultationRecord : (unsaved)&#xa;|                                 false&#xa;[consultationRecordInstance:ru.mm2.operations.ConsultationRecord : (unsaved)]&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.consultationRecordsInstance == consultationRecords
+|     |                           |  |
+|     null                        |  ru.mm2.operations.ConsultationRecord : (unsaved)
+|                                 false
+[consultationRecordInstance:ru.mm2.operations.ConsultationRecord : (unsaved)]
+
+	at ru.mm2.operations.ConsultationRecordsControllerSpec.Test that the edit action returns the correct model(ConsultationRecordsControllerSpec.groovy:89)
+</failure>
+  </testcase>
+  <testcase classname="ru.mm2.operations.ConsultationRecordsControllerSpec" name="Test the update action performs an update on a valid domain instance" time="0.88">
+    <failure message="Condition not satisfied:&#xa;&#xa;response.redirectedUrl == &apos;/consultationRecords/index&apos;&#xa;|        |             |&#xa;|        |             false&#xa;|        |             1 difference (96% similarity)&#xa;|        |             /consultationRecord(-)/index&#xa;|        |             /consultationRecord(s)/index&#xa;|        /consultationRecord/index&#xa;org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@1addeba1&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.redirectedUrl == &apos;/consultationRecords/index&apos;
+|        |             |
+|        |             false
+|        |             1 difference (96% similarity)
+|        |             /consultationRecord(-)/index
+|        |             /consultationRecord(s)/index
+|        /consultationRecord/index
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@1addeba1
+
+	at ru.mm2.operations.ConsultationRecordsControllerSpec.Test the update action performs an update on a valid domain instance(ConsultationRecordsControllerSpec.groovy:97)
+</failure>
+  </testcase>
+  <testcase classname="ru.mm2.operations.ConsultationRecordsControllerSpec" name="Test that the delete action deletes an instance if it exists" time="0.152">
+    <failure message="Condition not satisfied:&#xa;&#xa;response.redirectedUrl == &apos;/consultationRecords/index&apos;&#xa;|        |             |&#xa;|        |             false&#xa;|        |             1 difference (96% similarity)&#xa;|        |             /consultationRecord(-)/index&#xa;|        |             /consultationRecord(s)/index&#xa;|        /consultationRecord/index&#xa;org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@4093f39f&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.redirectedUrl == &apos;/consultationRecords/index&apos;
+|        |             |
+|        |             false
+|        |             1 difference (96% similarity)
+|        |             /consultationRecord(-)/index
+|        |             /consultationRecord(s)/index
+|        /consultationRecord/index
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@4093f39f
+
+	at ru.mm2.operations.ConsultationRecordsControllerSpec.Test that the delete action deletes an instance if it exists(ConsultationRecordsControllerSpec.groovy:127)
+</failure>
+  </testcase>
+  <system-out><![CDATA[--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+]]></system-out>
+  <system-err><![CDATA[--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+]]></system-err>
+</testsuite>

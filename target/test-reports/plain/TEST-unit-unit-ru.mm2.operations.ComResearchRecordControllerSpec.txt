@@ -1,0 +1,63 @@
+Testsuite: ru.mm2.operations.ComResearchRecordControllerSpec
+Tests run: 7, Failures: 1, Errors: 3, Time elapsed: 2,234 sec
+------------- Standard Output ---------------
+--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from Test the index action returns the correct model--
+--Output from Test the create action returns the correct model--
+--Output from Test the save action correctly persists an instance--
+--Output from Test that the show action returns the correct model--
+--Output from Test that the edit action returns the correct model--
+--Output from Test the update action performs an update on a valid domain instance--
+--Output from Test that the delete action deletes an instance if it exists--
+------------- ---------------- ---------------
+
+Testcase: Test the index action returns the correct model took 0,776 sec
+Testcase: Test the create action returns the correct model took 0,083 sec
+	Caused an ERROR
+null
+java.lang.NullPointerException
+	at java.text.SimpleDateFormat.parse(SimpleDateFormat.java:1380)
+	at java.text.DateFormat.parse(DateFormat.java:355)
+	at ru.mm2.operations.ComResearchRecordController.$tt__create(ComResearchRecordController.groovy:26)
+	at ru.mm2.operations.ComResearchRecordControllerSpec.Test the create action returns the correct model(ComResearchRecordControllerSpec.groovy:30)
+
+Testcase: Test the save action correctly persists an instance took 0,284 sec
+	Caused an ERROR
+Cannot redirect for object [ru.mm2.operations.ComResearchRecord : (unsaved)] it is not a domain or has no identifier. Use an explicit redirect instead 
+org.codehaus.groovy.grails.web.servlet.mvc.exceptions.CannotRedirectException: Cannot redirect for object [ru.mm2.operations.ComResearchRecord : (unsaved)] it is not a domain or has no identifier. Use an explicit redirect instead 
+	at ru.mm2.operations.ComResearchRecordController.tt__save_closure9_closure14(ComResearchRecordController.groovy:48)
+	at ru.mm2.operations.ComResearchRecordController.$tt__save(ComResearchRecordController.groovy:45)
+	at ru.mm2.operations.ComResearchRecordControllerSpec.Test the save action correctly persists an instance(ComResearchRecordControllerSpec.groovy:52)
+
+Testcase: Test that the show action returns the correct model took 0,168 sec
+Testcase: Test that the edit action returns the correct model took 0,296 sec
+Testcase: Test the update action performs an update on a valid domain instance took 0,248 sec
+	Caused an ERROR
+Cannot get property 'id' on null object
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at ru.mm2.operations.ComResearchRecordControllerSpec.Test the update action performs an update on a valid domain instance(ComResearchRecordControllerSpec.groovy:118)
+
+Testcase: Test that the delete action deletes an instance if it exists took 0,097 sec
+	FAILED
+Condition not satisfied:
+
+ComResearchRecord.count() == 1
+                  |       |
+                  0       false
+
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+ComResearchRecord.count() == 1
+                  |       |
+                  0       false
+
+	at ru.mm2.operations.ComResearchRecordControllerSpec.Test that the delete action deletes an instance if it exists(ComResearchRecordControllerSpec.groovy:136)
+
