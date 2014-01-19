@@ -37,6 +37,12 @@ class SecUser {
         }
     }
 
+    def toString = { "${fullName}" }
+
+    def encodeAsHTML(){
+        "${fullName}"
+    }
+
     protected void encodePassword() {
         password = springSecurityService.encodePassword(password)
     }

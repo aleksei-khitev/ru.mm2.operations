@@ -15,19 +15,18 @@
 		margin: 60px auto;
 		text-align: left;
 		border: 1px solid #aab;
-		background-color: #1E90FF;
+		background-color: #f0f0fa;
 		-moz-box-shadow: 2px 2px 2px #eee;
 		-webkit-box-shadow: 2px 2px 2px #eee;
 		-khtml-box-shadow: 2px 2px 2px #eee;
 		box-shadow: 2px 2px 2px #eee;
-        color: white;
 	}
 
 	#login .inner .fheader {
 		padding: 18px 26px 14px 26px;
-		background-color: mediumpurple;
+		background-color: #f7f7ff;
 		margin: 0px 0 14px 0;
-		color: white;
+		color: #2e3741;
 		font-size: 18px;
 		font-weight: bold;
 	}
@@ -72,7 +71,7 @@
 
 	#login .inner .login_message {
 		padding: 6px 25px 20px 25px;
-		color: red;
+		color: #c33;
 	}
 
 	#login .inner .text_ {
@@ -87,14 +86,14 @@
 
 <body>
 <div id='login'>
-	<div class='inner'>
-		<div class='fheader'><g:message code="springSecurity.login.header"/></div>
+	<div class='inner' style="background-color: #1E90FF; color: white">
+		<div class='fheader' style="background-color: mediumpurple"><g:message code="springSecurity.login.header"/></div>
 
 		<g:if test='${flash.message}'>
 			<div class='login_message'>${flash.message}</div>
 		</g:if>
 
-		<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
+		<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off' style="background-color: #1E90FF; color: white" >
 			<p>
 				<label for='username'><g:message code="springSecurity.login.username.label"/>:</label>
 				<input type='text' class='text_' name='j_username' id='username'/>

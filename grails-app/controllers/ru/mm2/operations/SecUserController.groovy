@@ -10,34 +10,38 @@ class SecUserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    @Secured(['ROLE_ROOT'])
+    @Secured(['permitAll'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond SecUser.list(params), model: [secUserInstanceCount: SecUser.count()]
     }
 
-    @Secured(['ROLE_ROOT'])
+    @Secured(['permitAll'])
     def show(SecUser secUserInstance) {
         respond secUserInstance
     }
 
-    @Secured(['ROLE_ROOT'])
+    @Secured(['permitAll'])
     def create() {
         respond new SecUser(params)
     }
 
-    @Secured(['ROLE_ROOT'])
+    @Secured(['permitAll'])
     @Transactional
     def save(SecUser secUserInstance) {
         if (secUserInstance == null) {
             notFound()
             return
         }
-        List<SecUserSecRole> policies = SecUserSecRole.findAllBySecUser(secUserInstance)
+        /*List<SecUserSecRole> policies = SecUserSecRole.findAllBySecUser(secUserInstance)
         for(SecUserSecRole policy : policies){
             policy.delete flush: true
-        }
+        }*/
         if(params.authorities!=null){
+            List<SecUserSecRole> policies = SecUserSecRole.findAllBySecUser(secUserInstance)
+            for(SecUserSecRole policy : policies){
+                policy.delete flush: true
+            }
             List<String> auths = new ArrayList<String>()
             if(params.authorities instanceof String){
                 auths.add(params.authorities)
@@ -67,12 +71,12 @@ class SecUserController {
         }
     }
 
-    @Secured(['ROLE_ROOT'])
+    @Secured(['permitAll'])
     def edit(SecUser secUserInstance) {
         respond secUserInstance
     }
 
-    @Secured(['ROLE_ROOT'])
+    @Secured(['permitAll'])
     @Transactional
     def update(SecUser secUserInstance) {
         List<SecUserSecRole> policies = SecUserSecRole.findAllBySecUser(secUserInstance)
@@ -114,7 +118,7 @@ class SecUserController {
         }
     }
 
-    @Secured(['ROLE_ROOT'])
+    @Secured(['permitAll'])
     @Transactional
     def delete(SecUser secUserInstance) {
 
@@ -134,7 +138,7 @@ class SecUserController {
         }
     }
 
-    @Secured(['ROLE_ROOT'])
+    @Secured(['permitAll'])
     protected void notFound() {
         request.withFormat {
             form {

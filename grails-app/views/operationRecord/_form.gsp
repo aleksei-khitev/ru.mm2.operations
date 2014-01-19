@@ -17,6 +17,7 @@
         }
     }
 </script>
+
 <div class="fieldcontain ${hasErrors(bean: operationRecordInstance, field: 'fio', 'error')} ">
     <label for="fio">
         <g:message code="operationRecord.fio.label" default="ФИО пациента" />
@@ -117,6 +118,7 @@
 <div class="fieldcontain ${hasErrors(bean: operationRecordInstance, field: 'oms', 'error')} ">
     <label for="oms">
         <g:message code="operationRecord.oms.label" default="Полис ОМС" />
+
     </label>
     <g:if test="${oms}">
         <g:textField name="oms" value="${oms}"/>
@@ -124,6 +126,7 @@
     <g:else>
         <g:textField name="oms" value="${operationRecordInstance?.oms}"/>
     </g:else>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: operationRecordInstance, field: 'operation', 'error')} required">
@@ -175,4 +178,3 @@
     </label>
     <g:textField name="prim" value="${operationRecordInstance?.prim}"/>
 </div>
-

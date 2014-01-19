@@ -47,7 +47,7 @@ class OperationRecordController {
         }
         Date date = dateFormat.parse(params.date_time);
         List<OperationRecord> operationRecord = OperationRecord.findAllByDate_timeBetween((date-1),date)
-        map.comOperationRecordInstanceCount=ComOperationRecord.count()
+        map.perationRecordInstanceCount=OperationRecord.count()
         respond operationRecord, model: map
     }
 
@@ -62,6 +62,10 @@ class OperationRecordController {
         if (operationRecordInstance.hasErrors()) {
             respond operationRecordInstance.errors, view: 'create'
             return
+        }
+
+        if(OperationRecord.findById(operationRecordInstance.id)){
+            OperationRecord.findById(operationRecordInstance.id).delete()
         }
 
         operationRecordInstance.save flush: true

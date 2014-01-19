@@ -2,7 +2,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: secUserInstance, field: 'fullName', 'error')} required">
     <label for="fullName">
-        <g:message code="secUser.fullName.label" default="fullName" />
+        <g:message code="secUser.fullName.label" default="Видимое имя пользователя" />
         <span class="required-indicator">*</span>
     </label>
     <g:textField name="fullName" required="" value="${secUserInstance?.fullName}"/>
@@ -21,7 +21,7 @@
 		<g:message code="secUser.password.label" default="Password" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="password" required="" value="${secUserInstance?.password}"/>
+	<g:passwordField name="password" required="" value="${secUserInstance?.password}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: secUserInstance, field: 'accountExpired', 'error')} ">
@@ -61,10 +61,10 @@
             <g:message code="secUser.authorities.label" default="Роли" />
         </label>
         <g:if test="${params.action == 'edit'}">
-            <g:select name="authorities" from="${ru.mm2.operations.SecRole.list()}" multiple='true' value="${secUserInstance.authorities}"/>
+            <g:select name="authorities" from="${ru.mm2.operations.SecRole.list()}" multiple='true' optionValue="authority"/>
         </g:if>
         <g:else>
-            <g:select name="authorities" from="${ru.mm2.operations.SecRole.list()}" multiple='true'/>
+            <g:select name="authorities" from="${ru.mm2.operations.SecRole.list()}" multiple='true' optionValue="authority"/>
         </g:else>
     </div>
 

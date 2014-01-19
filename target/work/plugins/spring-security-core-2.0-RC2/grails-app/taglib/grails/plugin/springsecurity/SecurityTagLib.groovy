@@ -128,6 +128,7 @@ class SecurityTagLib {
 		}
 	}
 
+
 	/**
 	 * Renders the body if the user is authenticated.
 	 */

@@ -4,26 +4,54 @@ package ru.mm2.operations
 
 class MailSenderJob {
     static triggers = {
-        //cron name: 'myTrigger', cronExpression: "0 55 17 * * ?"
+        cron name: 'myTrigger', cronExpression: "0 45 22 * * ?"
     }
 
     def mailService
 
     def execute() {
         println "!1"
-        List<OperationRecord> operations = OperationRecord.findByDate_timeBetween(new Date()+1, new Date()+2)
-        List<ComOperationRecord> comOperations = ComOperationRecord.findByDate_time(new Date()+1, new Date()+2)
-        for (OperationRecord currOper : operations){
+        int prolong = 3
+        Date diapStart = new Date()+prolong-1
+        diapStart.hours=23
+        diapStart.minutes=59
+        Date diapFinish = new Date()+prolong+1
+        diapFinish.hours=0
+        diapFinish.minutes=0
+        println "${diapStart}"
+        println "${diapFinish}"
+        for (OperationRecord currOper : OperationRecord.findByDate_timeBetween(diapStart, diapFinish)){
+            String subjectText = currOper?.doctor?.email
+            String toText = currOper?.doctor?.email
+            String textText = "Операция ${currOper?.operation?.name} у ${currOper?.fio}"
             println currOper?.doctor?.email
+            println "Операция на "+currOper.date_time
+            mailService.sendMail{
+                from "ru.mm2.operations@gmail.com"
+                to toText
+                subject subjectText
+                text textText
+            }
         }
-        for (ComOperationRecord currComOper : comOperations){
-            println currComOper?.doctor?.email
+        for (ComOperationRecord currComOper : ComOperationRecord.findByDate_timeBetween(diapStart, diapFinish)){
+            String subjectText = currComOper?.doctor?.email
+            String toText = currComOper?.doctor?.email
+            String textText = "Операция ${currComOper?.operation?.name} у ${currComOper?.fio}"
+            println toText
+            println subjectText
+            println textText
+            mailService.sendMail{
+                from "ru.mm2.operations@gmail.com"
+                to toText
+                subject subjectText
+                text textText
+            }
         }
         mailService.sendMail{
-            from "alexkhitev@gmail.com"
-            to "alpha_7@mail.ru"
-            subject "Test"
-            text "Text"
+            from "ru.mm2.operations@gmail.com"
+            to "9045531637@mail.ru"
+            subject "Рассылка успешна"
+            text "Расслыка ${new Date()} успешна"
         }
         println "!2"
     }

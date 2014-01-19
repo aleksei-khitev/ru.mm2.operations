@@ -46,6 +46,7 @@ class ComOperationRecordController {
             dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", new Locale("en","EN"))
         }
         Date date = dateFormat.parse(params.date_time);
+        map.date=date
         List<ComOperationRecord> comOperationRecord = ComOperationRecord.findAllByDate_timeBetween((date-1),date)
         map.comOperationRecordInstanceCount=ComOperationRecord.count()
         respond comOperationRecord, model: map

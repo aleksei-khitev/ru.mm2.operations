@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'secUser.label', default: 'SecUser')}" />
-		<title><g:message code="default.list.label" args="[entityName]" /></title>
+		<title><g:message code="default.listuser.label" args="[entityName]" /></title>
         <script>
             window.onload = function(){
                 document.getElementById('tab_4').checked = true;
@@ -17,11 +17,11 @@
 		<div class="nav" role="navigation" style="background-color: darkred">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}" style="color: white"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create" style="color: white"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create" style="color: white"><g:message code="default.newuser.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-secUser" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1><g:message code="default.listuser.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>

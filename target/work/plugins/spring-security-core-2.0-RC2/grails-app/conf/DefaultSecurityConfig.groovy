@@ -169,7 +169,7 @@ security {
 	adh {
 		errorPage = '/login/denied'
 		ajaxErrorPage = '/login/ajaxDenied'
-		useForward = false
+		useForward = true
 	}
 
 	/** passwordEncoder */
