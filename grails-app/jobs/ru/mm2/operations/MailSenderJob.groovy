@@ -20,7 +20,7 @@ class MailSenderJob {
         diapFinish.minutes=0
         println "${diapStart}"
         println "${diapFinish}"
-        for (OperationRecord currOper : OperationRecord.findByDate_timeBetween(diapStart, diapFinish)){
+        for (GenOperationRecord currOper : GenOperationRecord.findByDate_timeBetween(diapStart, diapFinish)){
             String subjectText = currOper?.doctor?.email
             String toText = currOper?.doctor?.email
             String textText = "Операция ${currOper?.operation?.name} у ${currOper?.fio}"
