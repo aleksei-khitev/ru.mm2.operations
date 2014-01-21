@@ -14,7 +14,7 @@
 
 <body>
 <hr/>
-<g:if test='${operSearchResult?.results}'>
+<g:if test='${genOperSearchResult?.results}'>
     <div class="content scaffold-list">
         <h1>Госпитализации</h1>
         <table>
@@ -28,11 +28,11 @@
                     <td>Примечание</td>
                 </tr>
             </thead>
-            <g:each var='result' in='${operSearchResult.results}'>
+            <g:each var='result' in='${genOperSearchResult.results}'>
 
                     <tbody>
                             <td>
-                                <g:link controller='operationRecord' action='show' id='${result.id}'>
+                                <g:link controller='genOperationRecord' action='show' id='${result.id}'>
                                     ${result.fio}
                                 </g:link>
                             </td>

@@ -1,6 +1,6 @@
 package ru.mm2.operations
 
-class OperationRecord {
+class GenOperationRecord {
     Integer id
     Date date_time
     String client_contact
@@ -13,6 +13,7 @@ class OperationRecord {
     String oms
     String disp
     String patology
+
     Boolean isPatology
     Boolean isConfirm
     Date birthday
@@ -43,5 +44,4 @@ class OperationRecord {
         patology nullable: true
         disp nullable: true
     }
-
 }

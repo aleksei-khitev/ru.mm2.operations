@@ -5,9 +5,9 @@ package ru.mm2.operations
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(OperationRecordController)
-@Mock(OperationRecord)
-class OperationRecordControllerSpec extends Specification {
+@TestFor(GenOperationRecordController)
+@Mock(GenOperationRecord)
+class GenOperationRecordControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class OperationRecordControllerSpec extends Specification {
         controller.index()
 
         then: "The model is correct"
-        !model.operationRecordInstanceList
-        model.operationRecordInstanceCount == 0
+        !model.genOperationRecordInstanceList
+        model.genOperationRecordInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,31 +30,31 @@ class OperationRecordControllerSpec extends Specification {
         controller.create()
 
         then: "The model is correctly created"
-        model.operationRecordInstance != null
+        model.genOperationRecordInstance != null
     }
 
     void "Test the save action correctly persists an instance"() {
 
         when: "The save action is executed with an invalid instance"
-        def operationRecord = new OperationRecord()
-        operationRecord.validate()
-        controller.save(operationRecord)
+        def genOperationRecord = new GenOperationRecord()
+        genOperationRecord.validate()
+        controller.save(genOperationRecord)
 
         then: "The create view is rendered again with the correct model"
-        model.operationRecordInstance != null
+        model.genOperationRecordInstance != null
         view == 'create'
 
         when: "The save action is executed with a valid instance"
         response.reset()
         populateValidParams(params)
-        operationRecord = new OperationRecord(params)
+        genOperationRecord = new GenOperationRecord(params)
 
-        controller.save(operationRecord)
+        controller.save(genOperationRecord)
 
         then: "A redirect is issued to the show action"
-        response.redirectedUrl == '/operationRecord/show/1'
+        response.redirectedUrl == '/genOperationRecord/show/1'
         controller.flash.message != null
-        OperationRecord.count() == 1
+        GenOperationRecord.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -66,11 +66,11 @@ class OperationRecordControllerSpec extends Specification {
 
         when: "A domain instance is passed to the show action"
         populateValidParams(params)
-        def operationRecord = new OperationRecord(params)
-        controller.show(operationRecord)
+        def genOperationRecord = new GenOperationRecord(params)
+        controller.show(genOperationRecord)
 
         then: "A model is populated containing the domain instance"
-        model.operationRecordInstance == operationRecord
+        model.genOperationRecordInstance == genOperationRecord
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -82,11 +82,11 @@ class OperationRecordControllerSpec extends Specification {
 
         when: "A domain instance is passed to the edit action"
         populateValidParams(params)
-        def operationRecord = new OperationRecord(params)
-        controller.edit(operationRecord)
+        def genOperationRecord = new GenOperationRecord(params)
+        controller.edit(genOperationRecord)
 
         then: "A model is populated containing the domain instance"
-        model.operationRecordInstance == operationRecord
+        model.genOperationRecordInstance == genOperationRecord
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -94,28 +94,28 @@ class OperationRecordControllerSpec extends Specification {
         controller.update(null)
 
         then: "A 404 error is returned"
-        response.redirectedUrl == '/operationRecord/index'
+        response.redirectedUrl == '/genOperationRecord/index'
         flash.message != null
 
 
         when: "An invalid domain instance is passed to the update action"
         response.reset()
-        def operationRecord = new OperationRecord()
-        operationRecord.validate()
-        controller.update(operationRecord)
+        def genOperationRecord = new GenOperationRecord()
+        genOperationRecord.validate()
+        controller.update(genOperationRecord)
 
         then: "The edit view is rendered again with the invalid instance"
         view == 'edit'
-        model.operationRecordInstance == operationRecord
+        model.genOperationRecordInstance == genOperationRecord
 
         when: "A valid domain instance is passed to the update action"
         response.reset()
         populateValidParams(params)
-        operationRecord = new OperationRecord(params).save(flush: true)
-        controller.update(operationRecord)
+        genOperationRecord = new GenOperationRecord(params).save(flush: true)
+        controller.update(genOperationRecord)
 
         then: "A redirect is issues to the show action"
-        response.redirectedUrl == "/operationRecord/show/$operationRecord.id"
+        response.redirectedUrl == "/genOperationRecord/show/$genOperationRecord.id"
         flash.message != null
     }
 
@@ -124,23 +124,23 @@ class OperationRecordControllerSpec extends Specification {
         controller.delete(null)
 
         then: "A 404 is returned"
-        response.redirectedUrl == '/operationRecord/index'
+        response.redirectedUrl == '/genOperationRecord/index'
         flash.message != null
 
         when: "A domain instance is created"
         response.reset()
         populateValidParams(params)
-        def operationRecord = new OperationRecord(params).save(flush: true)
+        def genOperationRecord = new GenOperationRecord(params).save(flush: true)
 
         then: "It exists"
-        OperationRecord.count() == 1
+        GenOperationRecord.count() == 1
 
         when: "The domain instance is passed to the delete action"
-        controller.delete(operationRecord)
+        controller.delete(genOperationRecord)
 
         then: "The instance is deleted"
-        OperationRecord.count() == 0
-        response.redirectedUrl == '/operationRecord/index'
+        GenOperationRecord.count() == 0
+        response.redirectedUrl == '/genOperationRecord/index'
         flash.message != null
     }
 }

@@ -46,8 +46,9 @@ class OperationRecordController {
             dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", new Locale("en","EN"))
         }
         Date date = dateFormat.parse(params.date_time);
+        map.date=date
         List<OperationRecord> operationRecord = OperationRecord.findAllByDate_timeBetween((date-1),date)
-        map.perationRecordInstanceCount=OperationRecord.count()
+        map.operationRecordInstanceCount=OperationRecord.count()
         respond operationRecord, model: map
     }
 
@@ -62,10 +63,6 @@ class OperationRecordController {
         if (operationRecordInstance.hasErrors()) {
             respond operationRecordInstance.errors, view: 'create'
             return
-        }
-
-        if(OperationRecord.findById(operationRecordInstance.id)){
-            OperationRecord.findById(operationRecordInstance.id).delete()
         }
 
         operationRecordInstance.save flush: true
@@ -138,6 +135,5 @@ class OperationRecordController {
             '*' { render status: NOT_FOUND }
         }
     }
-
 }
 

@@ -134,7 +134,7 @@
         <g:message code="comOperationRecord.operation.label" default="Операция" />
         <span class="required-indicator">*</span>
     </label>
-    <g:select id="operation" name="operation.id" from="${ru.mm2.operations.Operations.list()}" optionKey="id" required="" value="${comOperationRecordInstance?.operation?.id}" optionValue="name" class="many-to-one"/>
+    <g:select id="operation" noSelection="['':'Выберите операцию']" name="operation.id" from="${ru.mm2.operations.Operations.list()}" optionKey="id" required="" value="${comOperationRecordInstance?.operation?.id}" optionValue="name" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: comOperationRecordInstance, field: 'doctor', 'error')} required">
@@ -147,7 +147,7 @@
         <g:select id="doctor" name="doctor.id" from="${ru.mm2.operations.Doctor.list()}" optionKey="id" required="" optionValue="fio" value="${doctor_id}" class="many-to-one"/>
     </g:if>
     <g:else>
-        <g:select id="doctor" name="doctor.id" from="${ru.mm2.operations.Doctor.list()}" optionKey="id" required="" optionValue="fio" value="${comOperationRecordInstance?.doctor?.id}" class="many-to-one"/>
+        <g:select id="doctor" noSelection="['':'Выберите врача']" name="doctor.id" from="${ru.mm2.operations.Doctor.list()}" optionKey="id" required="" optionValue="fio" value="${comOperationRecordInstance?.doctor?.id}" class="many-to-one"/>
     </g:else>
 </div>
 

@@ -1,9 +1,9 @@
-<%@ page import="ru.mm2.operations.OperationRecord" %>
+<%@ page import="ru.mm2.operations.GenOperationRecord" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'operationRecord.label', default: 'OperationRecord')}" />
+    <g:set var="entityName" value="${message(code: 'genOperationRecord.label', default: 'GenOperationRecord')}" />
     <title><g:message code="default.editrecod.label" args="[entityName]" /></title>
     <script>
         window.onload = function(){
@@ -12,7 +12,7 @@
     </script>
 </head>
 <body>
-<a href="#edit-operationRecord" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+<a href="#edit-genOperationRecord" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 <div class="nav" role="navigation" style="background-color: yellowgreen">
     <ul>
         <li><a class="home" href="${createLink(uri: '/')}" style="color: white"><g:message code="default.home.label"/></a></li>
@@ -20,20 +20,20 @@
         <h3 style="text-align: center" style="color: black">Запись на госпитализацию</h3>
     </ul>
 </div>
-<div id="edit-operationRecord" class="content scaffold-edit" role="main">
+<div id="edit-genOperationRecord" class="content scaffold-edit" role="main">
     <h1><g:message code="default.editrecod.label" args="[entityName]" /></h1>
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <g:hasErrors bean="${operationRecordInstance}">
+    <g:hasErrors bean="${genOperationRecordInstance}">
         <ul class="errors" role="alert">
-            <g:eachError bean="${operationRecordInstance}" var="error">
+            <g:eachError bean="${genOperationRecordInstance}" var="error">
                 <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
             </g:eachError>
         </ul>
     </g:hasErrors>
-    <g:form url="[resource:operationRecordInstance, action:'update']" method="PUT" >
-        <g:hiddenField name="version" value="${operationRecordInstance?.version}" />
+    <g:form url="[resource:genOperationRecordInstance, action:'update']" method="PUT" >
+        <g:hiddenField name="version" value="${genOperationRecordInstance?.version}" />
         <fieldset class="form">
             <g:render template="form"/>
         </fieldset>

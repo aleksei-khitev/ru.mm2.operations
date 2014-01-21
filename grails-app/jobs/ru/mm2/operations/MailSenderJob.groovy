@@ -47,12 +47,6 @@ class MailSenderJob {
                 text textText
             }
         }
-        mailService.sendMail{
-            from "ru.mm2.operations@gmail.com"
-            to "9045531637@mail.ru"
-            subject "Рассылка успешна"
-            text "Расслыка ${new Date()} успешна"
-        }
         println "!2"
     }
 }

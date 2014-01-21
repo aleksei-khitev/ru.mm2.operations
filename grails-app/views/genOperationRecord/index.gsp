@@ -1,10 +1,10 @@
 
-<%@ page import="ru.mm2.operations.OperationRecord" %>
+<%@ page import="ru.mm2.operations.GenOperationRecord" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'operationRecord.label', default: 'OperationRecord')}" />
+    <g:set var="entityName" value="${message(code: 'genOperationRecord.label', default: 'GenOperationRecord')}" />
     <title><g:message code="default.list.label" args="[entityName]" /></title>
     <script>
         window.onload = function(){
@@ -13,7 +13,7 @@
     </script>
 </head>
 <body>
-<a href="#list-operationRecord" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+<a href="#list-genOperationRecord" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 <div class="nav" role="navigation" style="background-color: yellowgreen">
     <ul>
         <li><a class="home" href="${createLink(uri: '/')}" style="color: black"><g:message code="default.home.label"/></a></li>
@@ -35,9 +35,9 @@
         <tr>
             <g:each var="i" in="${ (0..<120) }">
                 <td>
-                    <g:patologyRecordImages domain="OperationRecord" date="${new Date()+i}"/>
-                    <g:lessTreeYearsImages domain="OperationRecord" date="${new Date()+i}"/>
-                    <g:notLessNotPatologyImages domain="OperationRecord" date="${new Date()+i}"/>
+                    <g:patologyRecordImages domain="GenOperationRecord" date="${new Date()+i}"/>
+                    <g:lessTreeYearsImages domain="GenOperationRecord" date="${new Date()+i}"/>
+                    <g:notLessNotPatologyImages domain="GenOperationRecord" date="${new Date()+i}"/>
                 </td>
             </g:each>
         </tr>

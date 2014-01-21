@@ -58,7 +58,7 @@
                                 </g:link>
                             </td>
                             <td>
-                                <g:link controller="operationRecord" class="home">
+                                <g:link controller="genOperationRecord" class="home">
                                     <img src="${resource(dir: 'images', file: 'shedulder.png')}" alt="Госпитализации" width="70" height="70"/><br>
                                     <h4 style="color:#F0FFFF">Запись на <br>госпитализацию</h4>
                                 </g:link>
