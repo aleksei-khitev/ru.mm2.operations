@@ -32,7 +32,7 @@
 </head>
 <body>
 <a href="#create-genOperationRecord" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-<div class="nav" role="navigation" style="background-color: yellowgreen">
+<div class="nav" role="navigation" style="background-color: #DDA0DD">
     <ul>
         <li><a class="home" href="${createLink(uri: '/')}" style="color: black"><g:message code="default.home.label"/></a></li>
         <li><g:link class="list" action="index" style="color: black"><g:message code="default.listrecodheader.label" args="[entityName]" /></g:link></li>

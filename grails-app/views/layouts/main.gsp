@@ -36,8 +36,8 @@
         <sec:ifAllGranted roles="ROLE_ROOT">
             <input id="tab_4" type="radio" name="tab" />
         </sec:ifAllGranted>
-        <label for="tab_1" id="tab_l1">Бесплатное отделение</label>
-        <label for="tab_2" id="tab_l2" style="background-color: forestgreen;">Платное отделение</label>
+        <label for="tab_1" id="tab_l1">ОМС</label>
+        <label for="tab_2" id="tab_l2" style="background-color: forestgreen;">ДМС, ХОЗРАСЧЁТ</label>
         <label for="tab_3" id="tab_l3" style="background-color: coral;">Общие данные</label>
         <sec:ifAllGranted roles="ROLE_ROOT">
             <label for="tab_4" id="tab_l4" style="background-color: darkred; color: white">Сервис</label>
@@ -109,19 +109,19 @@
                             </td>
                             <td>
                                 <g:link controller="doctor" class="home">
-                                    <img src="${resource(dir: 'images', file: 'doctor.png')}" alt="Врачи1" width="70" height="70"/><br>
+                                    <img src="${resource(dir: 'images', file: 'doctor.png')}" alt="Врачи" width="70" height="70"/><br>
                                     <h4 style="color:#F0FFFF">Врачи</h4>
                                 </g:link>
                             </td>
                             <td>
                                 <g:link controller="operations" class="home">
-                                    <img src="${resource(dir: 'images', file: 'operations.png')}" alt="Операции" width="70" height="70"/><br>
-                                    <h4 style="color:#F0FFFF">Операции</h4>
+                                    <img src="${resource(dir: 'images', file: 'operations.png')}" alt="Диагнозы" width="70" height="70"/><br>
+                                    <h4 style="color:#F0FFFF">Диагнозы</h4>
                                 </g:link>
                             </td>
                             <td>
                                 <g:link controller="research" class="home">
-                                    <img src="${resource(dir: 'images', file: 'research.jpg')}" alt="Операции" width="70" height="70"/><br>
+                                    <img src="${resource(dir: 'images', file: 'research.jpg')}" alt="Исследования" width="70" height="70"/><br>
                                     <h4 style="color:#F0FFFF">Исследования</h4>
                                 </g:link>
                             </td>
@@ -140,14 +140,14 @@
                                 </td>
                                 <td>
                                     <g:link controller="secUser" class="home">
-                                        <img src="${resource(dir: 'images', file: 'shedulder.png')}" alt="Пользователи" width="70" height="70"/><br>
-                                        <h4 style="color:#F0FFFF">Редактирование <br>пользователей</h4>
+                                        <img src="${resource(dir: 'images', file: 'Dizayni.ru-add-user.png')}" alt="Пользователи" width="70" height="70"/><br>
+                                        <h4 style="color:#F0FFFF">Управление <br>пользователями</h4>
                                     </g:link>
                                 </td>
                                 <td>
                                     <g:link controller="secRole" class="home">
-                                        <img src="${resource(dir: 'images', file: 'shedulder.png')}" alt="Роли" width="70" height="70"/><br>
-                                        <h4 style="color:#F0FFFF">Редактирование <br>ролей политики</h4>
+                                        <img src="${resource(dir: 'images', file: '03.jpg')}" alt="Роли" width="70" height="70"/><br>
+                                        <h4 style="color:#F0FFFF">Роли<br>пользователей</h4>
                                     </g:link>
                                 </td>
                             </tr>

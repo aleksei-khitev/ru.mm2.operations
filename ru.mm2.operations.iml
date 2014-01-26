@@ -74,8 +74,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="grails-2.3.5" level="application" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library name="Grails User Library (ru.mm2.operations)">
         <CLASSES>
           <root url="file://$MODULE_DIR$/lib" />
@@ -112,8 +111,8 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="ru.mm2.operations-grailsPlugins" />
+    <orderEntry type="library" name="grails-2.3" level="application" />
     <orderEntry type="library" name="grails-2.3.5" level="application" />
-    <orderEntry type="library" name="grails-2.3.5 (2)" level="application" />
   </component>
 </module>
 

@@ -14,7 +14,7 @@
 </head>
 <body>
 <a href="#list-genOperationRecord" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-<div class="nav" role="navigation" style="background-color: yellowgreen">
+<div class="nav" role="navigation" style="background-color: #DDA0DD">
     <ul>
         <li><a class="home" href="${createLink(uri: '/')}" style="color: black"><g:message code="default.home.label"/></a></li>
         <h3 style="text-align: center" style="color: black">Запись на госпитализацию</h3>
