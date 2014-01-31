@@ -25,9 +25,17 @@
         <thead>
         <tr>
             <g:each var="i" in="${ (0..<120) }">
-                <g:form>
+                <g:workOrWeekend date="${new Date()-121+i}"/>
+            </g:each>
+            <g:each var="i" in="${ (0..<120) }">
+
+                <g:if test="${i==0}">
+                    <g:workOrSunday date="${new Date()+i}" tabindex="1"/>
+                </g:if>
+                <g:else>
                     <g:workOrSunday date="${new Date()+i}"/>
-                </g:form>
+                </g:else>
+
             </g:each>
         </tr>
         </thead>
@@ -43,6 +51,9 @@
         </tr>
         </tbody>
     </table>
+    <script>
+        document.getElementById('dest').focus();
+    </script>
 </div>
 
 </body>

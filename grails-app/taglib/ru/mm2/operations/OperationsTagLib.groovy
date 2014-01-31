@@ -128,11 +128,21 @@ class OperationsTagLib {
             df.applyPattern( "EEE" );
             String dayOfWeek = df.format( attrs.date )
             if(dayOfWeek=="Вс"){
-                out << '<td style="color: red">'
+                if(attrs.tabindex!=null){
+                    println attrs.tabindex
+                    out << '<td id="dest" tabindex="1" style="color: red">'
+                }else{
+                    out << '<td style="color: red">'
+                }
                 out << g.formatDate (formatName:"custom.date.format", date:attrs.date)
                 out << '</td>'
             }else{
-                out << '<td>'
+                if(attrs.tabindex!=null){
+                    println attrs.tabindex
+                    out << '<td id="dest" tabindex="1">'
+                }else{
+                    out << '<td>'
+                }
                 out << g.link( class:"create", action:"create", params:[date_time: "${attrs.date}"]){ g.formatDate (formatName:"custom.date.format", date:attrs.date)}
                 out << '</td>'
             }
@@ -144,11 +154,21 @@ class OperationsTagLib {
             df.applyPattern( "EEE" );
             String dayOfWeek = df.format( attrs.date )
             if(dayOfWeek=="Вс"||dayOfWeek=="Сб"){
-                out << '<td style="color: red">'
+                if(attrs.tabindex!=null){
+                    println attrs.tabindex
+                    out << '<td id="dest" tabindex="1" style="color: red">'
+                }else{
+                    out << '<td style="color: red">'
+                }
                 out << g.formatDate (formatName:"custom.date.format", date:attrs.date)
                 out << '</td>'
             }else{
-                out << '<td>'
+                if(attrs.tabindex!=null){
+                    println attrs.tabindex
+                    out << '<td id="dest" tabindex="1">'
+                }else{
+                    out << '<td>'
+                }
                 out << g.link( class:"create", action:"create", params:[date_time: "${attrs.date}"]){ g.formatDate (formatName:"custom.date.format", date:attrs.date)}
                 out << '</td>'
             }
