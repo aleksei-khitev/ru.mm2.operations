@@ -137,4 +137,20 @@ class OperationsTagLib {
                 out << '</td>'
             }
     }
+
+    def WorkOrWeekend = {
+        attrs ->
+            SimpleDateFormat df = new SimpleDateFormat( "dd/MM/yy" );
+            df.applyPattern( "EEE" );
+            String dayOfWeek = df.format( attrs.date )
+            if(dayOfWeek=="Вс"||dayOfWeek=="Сб"){
+                out << '<td style="color: red">'
+                out << g.formatDate (formatName:"custom.date.format", date:attrs.date)
+                out << '</td>'
+            }else{
+                out << '<td>'
+                out << g.link( class:"create", action:"create", params:[date_time: "${attrs.date}"]){ g.formatDate (formatName:"custom.date.format", date:attrs.date)}
+                out << '</td>'
+            }
+    }
 }

@@ -24,7 +24,7 @@
         <thead>
         <tr>
             <g:each var="i" in="${ (0..<120) }">
-                <g:workOrSunday date="${new Date()+i}"/>
+                <g:workOrWeekend date="${new Date()+i}"/>
             </g:each>
         </tr>
         </thead>
