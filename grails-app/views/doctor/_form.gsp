@@ -51,5 +51,8 @@
 	<g:textField name="prim" value="${doctorInstance?.prim}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: comConsultationRecordInstance, field: 'updatedUser', 'error')} ">
+    <g:hiddenField name="updatedUser" value="${sec.loggedInUserInfo(field:"username")}"/>
+</div>
 
 

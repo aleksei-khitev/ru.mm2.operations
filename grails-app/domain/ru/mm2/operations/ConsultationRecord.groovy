@@ -14,6 +14,8 @@ class ConsultationRecord {
     Boolean isNaprav
     Boolean isPechat
     Boolean isConfirm
+    Date lastUpdated
+    String updatedUser
     static transients = ['formattedPhone']
     String getFormattedPhone(){
         if(client_contact.size()==7){

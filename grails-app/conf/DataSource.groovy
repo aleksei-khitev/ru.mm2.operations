@@ -15,7 +15,7 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost/operation_db?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/operation_db?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
             username = "root"
             password = "Tie_Interceptor"
         }
@@ -23,7 +23,7 @@ environments {
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/operation_db?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/operation_db?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
             username = "root"
             password = "Tie_Interceptor"
         }
@@ -31,7 +31,7 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/operation_db?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/operation_db?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull"
             username = "root"
             password = "Tie_Interceptor"
             properties {

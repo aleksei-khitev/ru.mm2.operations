@@ -168,7 +168,7 @@
 
             </li>
         </g:if>
-
+        <g:infoAboutRecord lastUpdated="${genOperationRecordInstance?.lastUpdated}" updatedUser="${genOperationRecordInstance?.updatedUser}"/>
     </ol>
     <g:form url="[resource:genOperationRecordInstance, action:'delete']" method="DELETE">
         <fieldset class="buttons">

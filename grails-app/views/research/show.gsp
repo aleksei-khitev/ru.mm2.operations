@@ -37,7 +37,7 @@
                         <span class="property-value" aria-labelledby="price-label"><g:fieldValue bean="${researchInstance}" field="price"/></span>
 				</li>
 				</g:if>
-			
+                <g:infoAboutRecord lastUpdated="${researchInstance?.lastUpdated}" updatedUser="${researchInstance?.updatedUser}"/>
 			</ol>
 			<g:form url="[resource:researchInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

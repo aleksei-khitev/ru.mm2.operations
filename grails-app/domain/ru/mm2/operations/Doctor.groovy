@@ -8,6 +8,8 @@ class Doctor {
     String email
     String localphone
     String workphone
+    Date lastUpdated
+    String updatedUser
     //static hasMany = [genOperationRecord:GenOperationRecord,comOperationRecord:ComOperationRecord]
     static searchable = true
     static constraints = {

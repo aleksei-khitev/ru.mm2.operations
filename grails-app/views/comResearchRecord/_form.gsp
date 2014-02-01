@@ -38,3 +38,6 @@
 	<g:select id="research" name="research.id" from="${ru.mm2.operations.Research.list(sort:"name")}" optionKey="id" required="" optionValue="nameAndString" value="${comResearchRecordInstance?.research?.id}" class="many-to-one"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: comResearchRecordInstance, field: 'updatedUser', 'error')} ">
+    <g:hiddenField name="updatedUser" value="${sec.loggedInUserInfo(field:"username")}"/>
+</div>

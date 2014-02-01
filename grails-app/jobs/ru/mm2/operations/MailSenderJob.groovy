@@ -42,15 +42,21 @@ class MailSenderJob {
         for (ComConsultationRecord currComCons : ComConsultationRecord.findByDate_timeBetween(diapStart, diapFinish)){
             mailText = "${mailText} ${currComCons?.fio}, ${onlyTimeFormat.format(currComCons?.date_time)}, ${currComCons?.diagnoz}, ${onlyDateFormat.format(currComCons?.birthday)}\r\n"
         }
-        mailService.sendMail{
+        /*mailService.sendMail{
             from "ru.mm2.operations@gmail.com"
             to "art1977.kashin@gmail.com"
+            subject "На ${new Date()+prolong}\r\n"
+            text mailText
+        }*/
+        mailService.sendMail{
+            from "ru.mm2.operations@gmail.com"
+            to "9045531637@mail.ru"
             subject "На ${new Date()+prolong}\r\n"
             text mailText
         }
         mailService.sendMail{
             from "ru.mm2.operations@gmail.com"
-            to "9045531637@mail.ru"
+            to "alexkhitev@gmail.com"
             subject "На ${new Date()+prolong}\r\n"
             text mailText
         }

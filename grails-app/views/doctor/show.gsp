@@ -82,7 +82,11 @@
                             <span class="property-value" aria-labelledby="prim-label"><g:fieldValue bean="${doctorInstance}" field="prim"/></span>
 
                     </li>
+
+
                 </g:if>
+
+                <g:infoAboutRecord lastUpdated="${doctorInstance?.lastUpdated}" updatedUser="${doctorInstance?.updatedUser}"/>
 			</ol>
 			<g:form url="[resource:doctorInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

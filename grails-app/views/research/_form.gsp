@@ -16,4 +16,6 @@
     </label>
     <g:textField name="price" required="" value="${researchInstance?.price}"/>
 </div>
-
+<div class="fieldcontain ${hasErrors(bean: researchInstance, field: 'updatedUser', 'error')} ">
+    <g:hiddenField name="updatedUser" value="${sec.loggedInUserInfo(field:"username")}"/>
+</div>

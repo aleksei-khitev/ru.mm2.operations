@@ -18,6 +18,8 @@ class ComOperationRecord {
     Date birthday
     Doctor doctor
     Operations operation
+    Date lastUpdated
+    String updatedUser
     static transients = ['formattedPhone']
     String getFormattedPhone(){
         if(client_contact.size()==7){

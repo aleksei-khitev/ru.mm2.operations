@@ -106,3 +106,7 @@
         <g:textField name="prim" value="${consultationRecordInstance?.prim}"/>
     </gui:toolTip>
 </div>
+
+<div class="fieldcontain ${hasErrors(bean: consultationRecordInstance, field: 'updatedUser', 'error')} ">
+    <g:hiddenField name="updatedUser" value="${sec.loggedInUserInfo(field:"username")}"/>
+</div>

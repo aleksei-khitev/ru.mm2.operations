@@ -178,3 +178,6 @@
     </label>
     <g:textField name="prim" value="${comOperationRecordInstance?.prim}"/>
 </div>
+<div class="fieldcontain ${hasErrors(bean: comOperationRecordInstance, field: 'updatedUser', 'error')} ">
+    <g:hiddenField name="updatedUser" value="${sec.loggedInUserInfo(field:"username")}"/>
+</div>

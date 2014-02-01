@@ -25,7 +25,7 @@
         <thead>
         <tr>
             <g:each var="i" in="${ (0..<120) }">
-                <g:workOrWeekend date="${new Date()-121+i}"/>
+                <g:workOrWeekend date="${new Date()-120+i}"/>
             </g:each>
             <g:each var="i" in="${ (0..<120) }">
 
@@ -43,9 +43,9 @@
         <tr>
             <g:each var="i" in="${ (0..<120) }">
                 <td>
-                    <g:patologyRecordImages domain="ComOperationRecord" date="${new Date()-121+i}"/>
-                    <g:lessTreeYearsImages domain="ComOperationRecord" date="${new Date()-121+i}"/>
-                    <g:notLessNotPatologyImages domain="ComOperationRecord" date="${new Date()-121+i}"/>
+                    <g:patologyRecordImages domain="ComOperationRecord" date="${new Date()-120+i}"/>
+                    <g:lessTreeYearsImages domain="ComOperationRecord" date="${new Date()-120+i}"/>
+                    <g:notLessNotPatologyImages domain="ComOperationRecord" date="${new Date()-120+i}"/>
                 </td>
             </g:each>
             <g:each var="i" in="${ (0..<120) }">

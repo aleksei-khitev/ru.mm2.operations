@@ -130,6 +130,8 @@
             </li>
         </g:if>
 
+        <g:infoAboutRecord lastUpdated="${comConsultationRecordInstance?.lastUpdated}" updatedUser="${comConsultationRecordInstance?.updatedUser}"/>
+
     </ol>
     <g:form url="[resource:comConsultationRecordInstance, action:'delete']" method="DELETE">
         <fieldset class="buttons">
@@ -140,5 +142,7 @@
         </fieldset>
     </g:form>
 </div>
+
+
 </body>
 </html>

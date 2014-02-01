@@ -6,6 +6,8 @@ class ComResearchRecord {
     String fio
     Date birthday
     Research research
+    Date lastUpdated
+    String updatedUser
     static belongsTo = [research:Research]
     static searchable = true
     static constraints = {

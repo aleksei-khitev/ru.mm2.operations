@@ -4,6 +4,8 @@ class Research {
     Integer id
     String name
     Double price
+    Date lastUpdated
+    String updatedUser
     static transients = ['nameAndString']
     String getNameAndString(){ "${name} - ${price}р." }
     //static hasMany = [comResearchRecord:ComResearchRecord]

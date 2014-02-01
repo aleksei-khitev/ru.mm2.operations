@@ -13,6 +13,26 @@ class OperationsTagLib {
             }
     }
 
+    def infoAboutRecord = {
+        attrs ->
+            if(attrs.lastUpdated){
+                out << '<li class="fieldcontain">'
+                out << '<span id="lastUpdated-label" class="property-label">Дата изменения записи</span>'
+                out << '<span class="property-value" aria-labelledby="lastUpdated-label">'
+                out << g.formatDate(formatName: "datetime.date.format", date: attrs.lastUpdated)
+                out << '</span>'
+                out << '</li>'
+            }
+            if(attrs.updatedUser){
+                out << '<li class="fieldcontain">'
+                out << '<span id="updatedUser-label" class="property-label">Последний оператор</span>'
+                out << '<span class="property-value" aria-labelledby="updatedUser-label">'
+                out << attrs.updatedUser
+                out << '</span>'
+                out << '</li>'
+            }
+    }
+
     def patologyRecordImages = {
         attrs ->
             if(attrs.domain!=null){
@@ -49,7 +69,6 @@ class OperationsTagLib {
                 }
                 if(result.size()>0){
                     for(int i=0; i<result.size(); i++){
-                        println attrs.date
                         out << '<img src="/ru.mm2.operations/static/images/type1.png" alt="Патология"/><br>'
                     }
                 }
@@ -130,7 +149,6 @@ class OperationsTagLib {
             String dayOfWeek = df.format( attrs.date )
             if(dayOfWeek=="Вс"){
                 if(attrs.tabindex!=null){
-                    println attrs.tabindex
                     out << '<td id="dest" tabindex="1" style="color: red">'
                 }else{
                     out << '<td style="color: red">'
@@ -163,7 +181,6 @@ class OperationsTagLib {
                 out << '</td>'
             }else{
                 if(attrs.tabindex!=null){
-                    println attrs.tabindex
                     out << '<td id="dest" tabindex="1">'
                 }else{
                     out << '<td>'

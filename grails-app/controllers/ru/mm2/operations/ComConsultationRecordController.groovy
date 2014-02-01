@@ -11,6 +11,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class ComConsultationRecordController {
 
+    def springSecurityService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     @Secured(['ROLE_OPER','ROLE_ROOT'])
@@ -44,6 +45,7 @@ class ComConsultationRecordController {
             respond comConsultationRecordInstance.errors, view: 'create'
             return
         }
+
 
         comConsultationRecordInstance.save flush: true
 

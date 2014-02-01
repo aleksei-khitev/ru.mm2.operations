@@ -63,6 +63,8 @@
 					
 				</li>
 				</g:if>
+
+                <g:infoAboutRecord lastUpdated="${comResearchRecordInstance?.lastUpdated}" updatedUser="${comResearchRecordInstance?.updatedUser}"/>
 			
 			</ol>
 			<g:form url="[resource:comResearchRecordInstance, action:'delete']" method="DELETE">

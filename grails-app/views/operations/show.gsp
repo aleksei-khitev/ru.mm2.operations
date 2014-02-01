@@ -36,7 +36,8 @@
 					
 				</li>
 				</g:if>
-			
+
+                <g:infoAboutRecord lastUpdated="${operationsInstance?.lastUpdated}" updatedUser="${operationsInstance?.updatedUser}"/>
 			</ol>
 			<g:form url="[resource:operationsInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

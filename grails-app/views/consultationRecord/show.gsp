@@ -130,6 +130,7 @@
             </li>
         </g:if>
 
+        <g:infoAboutRecord lastUpdated="${consultationRecordInstance?.lastUpdated}" updatedUser="${consultationRecordInstance?.updatedUser}"/>
     </ol>
     <g:form url="[resource:consultationRecordInstance, action:'delete']" method="DELETE">
         <fieldset class="buttons">
