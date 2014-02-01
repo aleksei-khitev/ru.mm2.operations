@@ -13,7 +13,7 @@
 		<g:message code="comResearchRecord.birthday.label" default="Дата рождения" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="birthday" precision="day"  value="${comResearchRecordInstance?.birthday}"  />
+	<g:datePicker name="birthday" precision="day"  value="${comResearchRecordInstance?.birthday}"   relativeYears="[-25..0]" />
 </div>
 
 
@@ -23,10 +23,10 @@
 		<span class="required-indicator">*</span>
 	</label>
     <g:if test="${date}">
-        <g:datePicker name="date_time" value="${date}"  />
+        <g:datePicker name="date_time" value="${date}"  relativeYears="[0..10]"/>
     </g:if>
     <g:else>
-        <g:datePicker name="date_time"  value="${comResearchRecordInstance?.date_time}"  />
+        <g:datePicker name="date_time"  value="${comResearchRecordInstance?.date_time}" relativeYears="[0..10]" />
     </g:else>
 </div>
 

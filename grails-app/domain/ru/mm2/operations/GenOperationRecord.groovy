@@ -13,7 +13,6 @@ class GenOperationRecord {
     String oms
     String disp
     String patology
-
     Boolean isPatology
     Boolean isConfirm
     Date birthday

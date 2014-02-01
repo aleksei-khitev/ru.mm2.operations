@@ -10,7 +10,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: comConsultationRecordInstance, field: 'birthday', 'error')} required">
     <label for="birthday">
-        <g:message code="comConsultationRecord.birthday.label" default="Дата рождения пациента" />
+        <g:message code="comConsultationRecord.birthday.label" default="Дата рождения пациента"   relativeYears="[-25..0]"/>
         <span class="required-indicator">*</span>
     </label>
     <g:datePicker name="birthday" precision="day"  value="${comConsultationRecordInstance?.birthday}"  />
@@ -22,10 +22,10 @@
         <span class="required-indicator">*</span>
     </label>
     <g:if test="${date}">
-        <g:datePicker name="date_time" value="${date}"  />
+        <g:datePicker name="date_time" value="${date}" relativeYears="[0..10]" />
     </g:if>
     <g:else>
-        <g:datePicker name="date_time"  value="${comConsultationRecordInstance?.date_time}"  />
+        <g:datePicker name="date_time"  value="${comConsultationRecordInstance?.date_time}"  relativeYears="[0..10]"/>
     </g:else>
 </div>
 

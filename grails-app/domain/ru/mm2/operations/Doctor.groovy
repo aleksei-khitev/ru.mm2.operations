@@ -8,7 +8,7 @@ class Doctor {
     String email
     String localphone
     String workphone
-    static hasMany = [operationRecord:OperationRecord]
+    static hasMany = [genOperationRecord:GenOperationRecord,comOperationRecord:ComOperationRecord]
     static searchable = true
     static constraints = {
         fio nullable: false, blank: false

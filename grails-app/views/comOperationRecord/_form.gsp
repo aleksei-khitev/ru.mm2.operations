@@ -37,7 +37,7 @@
         <span class="required-indicator">*</span>
     </label>
 
-    <g:datePicker name="birthday" precision="day"  value="${birthday}"  />
+    <g:datePicker name="birthday" precision="day"  value="${birthday}"   relativeYears="[-25..0]" />
 
 </div>
 
@@ -131,10 +131,10 @@
 
 <div class="fieldcontain ${hasErrors(bean: comOperationRecordInstance, field: 'operation', 'error')} required">
     <label for="operation">
-        <g:message code="comOperationRecord.operation.label" default="Операция" />
+        <g:message code="comOperationRecord.operation.label" default="Диагноз" />
         <span class="required-indicator">*</span>
     </label>
-    <g:select id="operation" noSelection="['':'Выберите операцию']" name="operation.id" from="${ru.mm2.operations.Operations.list()}" optionKey="id" required="" value="${comOperationRecordInstance?.operation?.id}" optionValue="name" class="many-to-one"/>
+    <g:select id="operation" noSelection="['':'Выберите диагноз']" name="operation.id" from="${ru.mm2.operations.Operations.list()}" optionKey="id" required="" value="${comOperationRecordInstance?.operation?.id}" optionValue="name" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: comOperationRecordInstance, field: 'doctor', 'error')} required">
@@ -157,10 +157,10 @@
         <span class="required-indicator">*</span>
     </label>
     <g:if test="${date}">
-        <g:datePicker name="date_time" precision="day"  value="${date}"  />
+        <g:datePicker name="date_time" precision="day"  value="${date}"  relativeYears="[0..10]" />
     </g:if>
     <g:else>
-        <g:datePicker name="date_time" precision="day"  value="${comOperationRecordInstance?.date_time}"  />
+        <g:datePicker name="date_time" precision="day"  value="${comOperationRecordInstance?.date_time}"  relativeYears="[0..10]" />
     </g:else>
 </div>
 <div class="fieldcontain ${hasErrors(bean: comOperationRecordInstance, field: 'isConfirm', 'error')} ">

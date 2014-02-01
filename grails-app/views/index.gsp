@@ -89,7 +89,7 @@
                 <li><a href="${createLink(controller: 'research', action: 'index')}">Исследования</a></li>
                 <br/>
                 <li><a href="${createLink(controller: 'consultationRecord', action: 'index')}">Бесплатные консультации</a></li>
-				<li><a href="${createLink(controller: 'operationRecord', action: 'index')}">Плановая госпитализация</a></li>
+				<li><a href="${createLink(controller: 'genOperationRecord', action: 'index')}">Плановая госпитализация</a></li>
                 <br/>
                 <li><a href="${createLink(controller: 'comConsultationRecord', action: 'index')}">Платные консультации</a></li>
                 <li><a href="${createLink(controller: 'comOperationRecord', action: 'index')}">Платная госпитализация</a></li>
