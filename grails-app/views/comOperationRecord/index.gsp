@@ -43,6 +43,13 @@
         <tr>
             <g:each var="i" in="${ (0..<120) }">
                 <td>
+                    <g:patologyRecordImages domain="ComOperationRecord" date="${new Date()-121+i}"/>
+                    <g:lessTreeYearsImages domain="ComOperationRecord" date="${new Date()-121+i}"/>
+                    <g:notLessNotPatologyImages domain="ComOperationRecord" date="${new Date()-121+i}"/>
+                </td>
+            </g:each>
+            <g:each var="i" in="${ (0..<120) }">
+                <td>
                     <g:patologyRecordImages domain="ComOperationRecord" date="${new Date()+i}"/>
                     <g:lessTreeYearsImages domain="ComOperationRecord" date="${new Date()+i}"/>
                     <g:notLessNotPatologyImages domain="ComOperationRecord" date="${new Date()+i}"/>

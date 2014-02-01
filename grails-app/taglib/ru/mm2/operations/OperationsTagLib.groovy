@@ -25,7 +25,7 @@ class OperationsTagLib {
                         result.add(records)
                     }
                 }
-                if(result.size()>0){
+                for(int i=0; i<result.size(); i++){
                     result.any(){
                         out << '<img src="/ru.mm2.operations/static/images/type2.png" alt="Патология"/><br>'
                     }
@@ -48,7 +48,8 @@ class OperationsTagLib {
                     }
                 }
                 if(result.size()>0){
-                    result.any(){
+                    for(int i=0; i<result.size(); i++){
+                        println attrs.date
                         out << '<img src="/ru.mm2.operations/static/images/type1.png" alt="Патология"/><br>'
                     }
                 }
@@ -69,7 +70,7 @@ class OperationsTagLib {
                         result.add(records)
                     }
                 }
-                if(result.size()>0){
+                for(int i=0; i<result.size(); i++){
                     result.any(){
                         out << '<img src="/ru.mm2.operations/static/images/type3.png" alt="Патология"/><br>'
                     }
@@ -93,7 +94,7 @@ class OperationsTagLib {
                         }
                     }
                 }
-                if(result.size()>0){
+                for(int i=0; i<result.size(); i++){
                     result.any(){
                         out << '<img src="/ru.mm2.operations/static/images/type3.png" alt="Патология"/><br>'
                     }
@@ -113,7 +114,7 @@ class OperationsTagLib {
                 for(def records : list){
                         result.add(records)
                 }
-                if(result.size()>0){
+                for(int i=0; i<result.size(); i++){
                     result.any(){
                         out << '<img src="/ru.mm2.operations/static/images/type3.png" alt="Патология"/><br>'
                     }
@@ -138,7 +139,6 @@ class OperationsTagLib {
                 out << '</td>'
             }else{
                 if(attrs.tabindex!=null){
-                    println attrs.tabindex
                     out << '<td id="dest" tabindex="1">'
                 }else{
                     out << '<td>'
@@ -155,7 +155,6 @@ class OperationsTagLib {
             String dayOfWeek = df.format( attrs.date )
             if(dayOfWeek=="Вс"||dayOfWeek=="Сб"){
                 if(attrs.tabindex!=null){
-                    println attrs.tabindex
                     out << '<td id="dest" tabindex="1" style="color: red">'
                 }else{
                     out << '<td style="color: red">'

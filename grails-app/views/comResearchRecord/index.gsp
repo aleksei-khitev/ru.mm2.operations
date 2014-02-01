@@ -43,6 +43,11 @@
             <tr>
                 <g:each var="i" in="${ (0..<120) }">
                     <td>
+                        <g:allImages domain="ComResearchRecord" date="${new Date()-121+i}"/>
+                    </td>
+                </g:each>
+                <g:each var="i" in="${ (0..<120) }">
+                    <td>
                         <g:allImages domain="ComResearchRecord" date="${new Date()+i}"/>
                     </td>
                 </g:each>
