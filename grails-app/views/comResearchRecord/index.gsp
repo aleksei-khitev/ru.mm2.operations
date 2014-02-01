@@ -34,7 +34,7 @@
                     </g:if>
                     <g:else>
                         <g:workOrSunday date="${new Date()+i}"/>
-                    </g:else>https://github.com/alexkhitev/ru.mm2.operations/issues/29
+                    </g:else>
 
                 </g:each>
             </tr>

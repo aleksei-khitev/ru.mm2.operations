@@ -6,7 +6,7 @@ class Research {
     Double price
     static transients = ['nameAndString']
     String getNameAndString(){ "${name} - ${price}р." }
-    static hasMany = [comResearchRecord:ComResearchRecord]
+    //static hasMany = [comResearchRecord:ComResearchRecord]
     static constraints = {
         name nullable:false, blank: false
     }

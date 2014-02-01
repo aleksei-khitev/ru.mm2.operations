@@ -4,7 +4,7 @@ class Operations {
     Integer id
     String name
 
-    static hasMany = [genOperationRecord:GenOperationRecord, comOperationRecord:ComOperationRecord]
+    //static hasMany = [genOperationRecord:GenOperationRecord, comOperationRecord:ComOperationRecord]
 
     static constraints = {
         name nullable:false, blank: false
