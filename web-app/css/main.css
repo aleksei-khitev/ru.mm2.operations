@@ -40,7 +40,7 @@ body {
 	background: #ffffff;
 	color: #333333;
 	margin: 0 auto;
-	max-width: 950px;
+	max-width: 1024px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
 	   -moz-box-shadow: 0 0 0.3em #255b17;
 	-webkit-box-shadow: 0 0 0.3em #255b17;
@@ -60,6 +60,10 @@ body {
 }
 
 #grailsLogo3 {
+    background-color: darkred;
+}
+
+#grailsLogo5 {
     background-color: darkred;
 }
 
@@ -661,7 +665,8 @@ a.skip {
 #tab_1:checked ~ .tabs_cont #tab_c1,
 #tab_2:checked ~ .tabs_cont #tab_c2,
 #tab_3:checked ~ .tabs_cont #tab_c3,
-#tab_4:checked ~ .tabs_cont #tab_c4{
+#tab_4:checked ~ .tabs_cont #tab_c4,
+#tab_5:checked ~ .tabs_cont #tab_c5{
     position: static;
     left: 0;
     opacity: 1;}

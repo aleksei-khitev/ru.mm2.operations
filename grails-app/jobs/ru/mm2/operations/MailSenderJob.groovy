@@ -50,7 +50,7 @@ class MailSenderJob {
         mailText = "${mailText} <tr style='background-color: #1E90FF; color: white'><td colspan='4'>Консультации по ОМС</td></tr><tr style='background-color: mediumpurple; color: white'><td>Время</td><td>ФИО</td><td>Диагноз</td><td>Дата рождения</td></tr>"
         if(consultationRecordList.size()>0){
             for (ConsultationRecord currCons : consultationRecordList){
-                mailText = "${mailText}<tr><td>${currCons?.fio}</td><td>${onlyTimeFormat.format(currCons?.date_time)}</td><td>${currCons?.diagnoz}</td><td>${onlyDateFormat.format(currCons?.birthday)}</td></tr>"
+                mailText = "${mailText}<tr><td>${onlyTimeFormat.format(currCons?.date_time)}</td><td>${currCons?.fio}</td><td>${currCons?.diagnoz}</td><td>${onlyDateFormat.format(currCons?.birthday)}</td></tr>"
             }
         }else{
             mailText = "${mailText}<tr><td colspan='4'>Нет</td></tr>"
@@ -58,7 +58,7 @@ class MailSenderJob {
         mailText = "${mailText} <tr style='background-color: #1E90FF; color: white'><td colspan='4'>Консультации по ДМС и ХозРасчету</td></tr><tr style='background-color: forestgreen; color: white'><td>Время</td><td>ФИО</td><td>Диагноз</td><td>Дата рождения</td></tr>"
         if(comConsultationRecordList.size()>0){
             for (ComConsultationRecord currComCons : comConsultationRecordList){
-                mailText = "${mailText}<tr><td>${currComCons?.fio}</td><td>${onlyTimeFormat.format(currComCons?.date_time)}</td><td>${currComCons?.diagnoz}</td><td>${onlyDateFormat.format(currComCons?.birthday)}</td></tr>"
+                mailText = "${mailText}<tr><td>${onlyTimeFormat.format(currComCons?.date_time)}</td><td>${currComCons?.fio}</td><td>${currComCons?.diagnoz}</td><td>${onlyDateFormat.format(currComCons?.birthday)}</td></tr>"
             }
         }else{
             mailText = "${mailText}<tr><td colspan='4'>Нет</td></tr>"
@@ -73,6 +73,18 @@ class MailSenderJob {
         mailService.sendMail{
             from "ru.mm2.operations@gmail.com"
             to "9045531637@mail.ru"
+            subject "На ${new Date()+prolong}\r\n"
+            html mailText
+        }
+        mailService.sendMail{
+            from "ru.mm2.operations@gmail.com"
+            to "zautas@gmail.com"
+            subject "На ${new Date()+prolong}\r\n"
+            html mailText
+        }
+        mailService.sendMail{
+            from "ru.mm2.operations@gmail.com"
+            to "mshabluk@mm2.ru"
             subject "На ${new Date()+prolong}\r\n"
             html mailText
         }

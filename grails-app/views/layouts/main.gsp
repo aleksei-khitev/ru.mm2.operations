@@ -33,12 +33,14 @@
         <input id="tab_1" type="radio" name="tab" checked="checked" />
         <input id="tab_2" type="radio" name="tab" />
         <input id="tab_3" type="radio" name="tab" />
+        <input id="tab_5" type="radio" name="tab" />
         <sec:ifAllGranted roles="ROLE_ROOT">
             <input id="tab_4" type="radio" name="tab" />
         </sec:ifAllGranted>
         <label for="tab_1" id="tab_l1">ОМС</label>
         <label for="tab_2" id="tab_l2" style="background-color: forestgreen;">ДМС, ХОЗРАСЧЁТ</label>
         <label for="tab_3" id="tab_l3" style="background-color: coral;">Общие данные</label>
+        <label for="tab_5" id="tab_l5" style="background-color: yellow;">Журналы</label>
         <sec:ifAllGranted roles="ROLE_ROOT">
             <label for="tab_4" id="tab_l4" style="background-color: darkred; color: white">Сервис</label>
         </sec:ifAllGranted>
@@ -123,6 +125,25 @@
                                 <g:link controller="research" class="home">
                                     <img src="${resource(dir: 'images', file: 'research.jpg')}" alt="Исследования" width="70" height="70"/><br>
                                     <h4 style="color:#F0FFFF">Исследования</h4>
+                                </g:link>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            <div id="tab_c5">
+                <div id="grailsLogo5" role="banner">
+
+                    <table>
+                        <tr style="background-color: yellow">
+                            <td>
+                                <a href="${createLink(url: '/ru.mm2.operations/')}"><img src="${resource(dir: 'images', file: 'logo.jpg')}" alt="Детская больница №2 Святой Марии Магдалины"/></a>
+                            </td>
+                            <td>
+                                <g:link controller="ktRegister" class="home">
+                                    <img src="${resource(dir: 'images', file: 'doctor.png')}" alt="Врачи" width="70" height="70"/><br>
+                                    <h4 style="color:#F0FFFF">Журнал КТ</h4>
                                 </g:link>
                             </td>
                         </tr>

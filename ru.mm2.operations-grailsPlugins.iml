@@ -15,6 +15,11 @@
           <root url="file://$MODULE_DIR$/target/work/plugins/quartz-1.0-RC11/web-app" relative="/" />
           <root url="file://$MODULE_DIR$/target/work/plugins/mail-1.0.1/grails-app/views" relative="/" />
           <root url="file://$MODULE_DIR$/target/work/plugins/spring-security-core-2.0-RC2/grails-app/views" relative="/" />
+          <root url="file://$MODULE_DIR$/target/work/plugins/easygrid-1.4.3/web-app" relative="/" />
+          <root url="file://$MODULE_DIR$/target/work/plugins/easygrid-1.4.3/grails-app/views" relative="/" />
+          <root url="file://$MODULE_DIR$/target/work/plugins/export-1.5/web-app" relative="/" />
+          <root url="file://$MODULE_DIR$/target/work/plugins/google-visualization-0.6.2/web-app" relative="/" />
+          <root url="file://$MODULE_DIR$/target/work/plugins/google-visualization-0.6.2/grails-app/views" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -48,6 +53,22 @@
     <content url="file://$MODULE_DIR$/target/work/plugins/database-migration-1.3.8">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/database-migration-1.3.8/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/database-migration-1.3.8/grails-app/controllers" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/target/work/plugins/easygrid-1.4.3">
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/easygrid-1.4.3/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/easygrid-1.4.3/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/easygrid-1.4.3/grails-app/i18n" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/easygrid-1.4.3/grails-app/services" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/easygrid-1.4.3/grails-app/taglib" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/target/work/plugins/export-1.5">
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/export-1.5/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/export-1.5/grails-app/services" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/export-1.5/grails-app/taglib" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/target/work/plugins/google-visualization-0.6.2">
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/google-visualization-0.6.2/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/google-visualization-0.6.2/grails-app/taglib" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$/target/work/plugins/grails-ui-1.2.3">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/grails-ui-1.2.3/src/groovy" isTestSource="false" />
@@ -116,14 +137,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="grails-2.3.5 (2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="grails-2.3" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="grails-2.3.5" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="grails-2.3.5 (2)" level="application" />
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (ru.mm2.operations-grailsPlugins)">
         <CLASSES>
           <root url="file://$MODULE_DIR$/target/work/plugins/searchable-0.6.5/lib" />
           <root url="file://$MODULE_DIR$/target/work/plugins/grails-ui-1.2.3/lib" />
+          <root url="file://$MODULE_DIR$/target/work/plugins/export-1.5/lib" />
           <root url="jar://$MAVEN_REPOSITORY$/org/liquibase/liquibase-core/2.0.5/liquibase-core-2.0.5.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/3.2.5.RELEASE/spring-orm-3.2.5.RELEASE.jar!/" />
@@ -150,9 +172,14 @@
           <root url="jar://$MAVEN_REPOSITORY$/javax/mail/mail/1.4.3/mail-1.4.3.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.2.0.RC1/spring-security-web-3.2.0.RC1.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.0.RC1/spring-security-core-3.2.0.RC1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/net/sf/opencsv/opencsv/1.8/opencsv-1.8.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/com/ibm/icu/icu4j/4.0.1/icu4j-4.0.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/r07/guava-r07.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/com/google/visualization/visualization-datasource/1.1.1/visualization-datasource-1.1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/target/work/plugins/export-1.5/lib" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/target/work/plugins/grails-ui-1.2.3/lib" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/target/work/plugins/searchable-0.6.5/lib" recursive="false" />
       </library>
