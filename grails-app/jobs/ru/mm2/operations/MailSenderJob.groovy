@@ -26,42 +26,42 @@ class MailSenderJob {
         println "${diapStart}"
         println "${diapFinish}"
         String mailText = "На ${onlyDateFormat.format(new Date()+prolong)}\r\n"
-        mailText = "<html><head><meta http-equiv='Content-type' content='text/html; charset=utf-8' /><title></title></head><body><h3>На ${onlyDateFormat.format(new Date()+prolong)}</h3><br/><table border='1'>"
+        mailText = "<html><head><meta http-equiv='Content-type' content='text/html; charset=utf-8' /><title></title></head><body><h3>Список пациентов на <font color='darkred'>${onlyDateFormat.format(new Date()+prolong)}</font></h3><br/><table border='1'>"
         List<GenOperationRecord> genOperationRecordList = GenOperationRecord.findAllByDate_timeBetween(diapStart, diapFinish);
         List<ComOperationRecord> comOperationRecordList = ComOperationRecord.findAllByDate_timeBetween(diapStart, diapFinish);
         List<ConsultationRecord> consultationRecordList = ConsultationRecord.findAllByDate_timeBetween(diapStart, diapFinish);
         List<ComConsultationRecord> comConsultationRecordList = ComConsultationRecord.findAllByDate_timeBetween(diapStart, diapFinish);
-        mailText = "${mailText} <tr style='background-color: #1E90FF; color: white'><td colspan='4'>Госпитализации по ОМС</td></tr><tr style='background-color: mediumpurple; color: white'><td colspan='2'>ФИО</td><td>Диагноз</td><td>Дата рождения</td></tr>"
+        mailText = "${mailText} <tr style='background-color: mediumpurple; color: white'><td colspan='7'>Госпитализации по ОМС</td></tr><tr style='background-color: #1E90FF; color: white'><td colspan='2'>ФИО</td><td>Диагноз</td><td>Дата рождения</td><td>Обзвон</td><td>Комментарий</td><td>Телефон для связи</td></tr>"
         if(genOperationRecordList.size()>0){
             for (GenOperationRecord currOper : genOperationRecordList){
-                mailText = "${mailText}<tr><td colspan='2'>${currOper?.fio}</td><td>${currOper?.operation?.name}</td><td>${onlyDateFormat.format(currOper?.birthday)}</td></tr>"
+                mailText = "${mailText}<tr><td colspan='2'>${currOper?.fio}</td><td>${currOper?.operation?.name}</td><td>${onlyDateFormat.format(currOper?.birthday)}</td><td>${currOper?.formattedConfirm}</td><td>${currOper?.prim}</td><td>${currOper?.formattedPhone}</td></tr>"
             }
         }else{
-            mailText = "${mailText}<tr><td colspan='4'>Нет</td></tr>"
+            mailText = "${mailText}<tr><td colspan='7' align='center'>Нет</td></tr>"
         }
-        mailText = "${mailText} <tr style='background-color: #1E90FF; color: white'><td colspan='4'>Госпитализации по ДМС и ХозРасчету</td></tr><tr style='background-color: forestgreen; color: white'><td colspan='2'>ФИО</td><td>Диагноз</td><td>Дата рождения</td></tr>"
+        mailText = "${mailText} <tr style='background-color: forestgreen; color: white'><td colspan='7'>Госпитализации по ДМС и ХозРасчету</td></tr><tr style='background-color: #1E90FF; color: white'><td colspan='2'>ФИО</td><td>Диагноз</td><td>Дата рождения</td><td>Обзвон</td><td>Комментарий</td><td>Телефон для связи</td></tr>"
         if(comOperationRecordList.size()>0){
             for (ComOperationRecord currComOper : comOperationRecordList){
-                mailText = "${mailText}<tr><td colspan='2'>${currComOper?.fio}</td><td>${currComOper?.operation?.name}</td><td>${onlyDateFormat.format(currComOper?.birthday)}</td></tr>"
+                mailText = "${mailText}<tr><td colspan='2'>${currComOper?.fio}</td><td>${currComOper?.operation?.name}</td><td>${onlyDateFormat.format(currComOper?.birthday)}</td><td>${currComOper?.formattedConfirm}</td><td>${currComOper?.prim}</td><td>${currComOper?.formattedPhone}</td></tr>"
             }
         }else{
-            mailText = "${mailText}<tr><td colspan='4'>Нет</td></tr>"
+            mailText = "${mailText}<tr><td colspan='7' align='center'>Нет</td></tr>"
         }
-        mailText = "${mailText} <tr style='background-color: #1E90FF; color: white'><td colspan='4'>Консультации по ОМС</td></tr><tr style='background-color: mediumpurple; color: white'><td>Время</td><td>ФИО</td><td>Диагноз</td><td>Дата рождения</td></tr>"
+        mailText = "${mailText} <tr style='background-color: mediumpurple; color: white'><td colspan='7'>Консультации по ОМС</td></tr><tr style='background-color: #1E90FF; color: white'><td>Время</td><td>ФИО</td><td>Диагноз</td><td>Дата рождения</td><td>Обзвон</td><td>Комментарий</td><td>Телефон для связи</td></tr>"
         if(consultationRecordList.size()>0){
             for (ConsultationRecord currCons : consultationRecordList){
-                mailText = "${mailText}<tr><td>${onlyTimeFormat.format(currCons?.date_time)}</td><td>${currCons?.fio}</td><td>${currCons?.diagnoz}</td><td>${onlyDateFormat.format(currCons?.birthday)}</td></tr>"
+                mailText = "${mailText}<tr><td>${onlyTimeFormat.format(currCons?.date_time)}</td><td>${currCons?.fio}</td><td>${currCons?.diagnoz}</td><td>${onlyDateFormat.format(currCons?.birthday)}</td><td>${currCons?.formattedConfirm}</td><td>${currCons?.prim}</td><td>${currCons?.formattedPhone}</td></tr>"
             }
         }else{
-            mailText = "${mailText}<tr><td colspan='4'>Нет</td></tr>"
+            mailText = "${mailText}<tr><td colspan='7' align='center'>Нет</td></tr>"
         }
-        mailText = "${mailText} <tr style='background-color: #1E90FF; color: white'><td colspan='4'>Консультации по ДМС и ХозРасчету</td></tr><tr style='background-color: forestgreen; color: white'><td>Время</td><td>ФИО</td><td>Диагноз</td><td>Дата рождения</td></tr>"
+        mailText = "${mailText} <tr style='background-color: forestgreen; color: white'><td colspan='7'>Консультации по ДМС и ХозРасчету</td></tr><tr style='background-color: #1E90FF; color: white'><td>Время</td><td>ФИО</td><td>Диагноз</td><td>Дата рождения</td><td>Обзвон</td><td>Комментарий</td><td>Телефон для связи</td></tr>"
         if(comConsultationRecordList.size()>0){
             for (ComConsultationRecord currComCons : comConsultationRecordList){
-                mailText = "${mailText}<tr><td>${onlyTimeFormat.format(currComCons?.date_time)}</td><td>${currComCons?.fio}</td><td>${currComCons?.diagnoz}</td><td>${onlyDateFormat.format(currComCons?.birthday)}</td></tr>"
+                mailText = "${mailText}<tr><td>${onlyTimeFormat.format(currComCons?.date_time)}</td><td>${currComCons?.fio}</td><td>${currComCons?.diagnoz}</td><td>${onlyDateFormat.format(currComCons?.birthday)}</td><td>${currComCons?.formattedConfirm}</td><td>${currComCons?.prim}</td><td>${currComCons?.formattedPhone}</td></tr>"
             }
         }else{
-            mailText = "${mailText}<tr><td colspan='4'>Нет</td></tr>"
+            mailText = "${mailText}<tr><td colspan='7' align='center'>Нет</td></tr>"
         }
         mailText = "${mailText}</table></body></html>"
         mailService.sendMail{
@@ -85,6 +85,12 @@ class MailSenderJob {
         mailService.sendMail{
             from "ru.mm2.operations@gmail.com"
             to "mshabluk@mm2.ru"
+            subject "На ${new Date()+prolong}\r\n"
+            html mailText
+        }
+        mailService.sendMail{
+            from "ru.mm2.operations@gmail.com"
+            to "elmikava@ya.ru"
             subject "На ${new Date()+prolong}\r\n"
             html mailText
         }

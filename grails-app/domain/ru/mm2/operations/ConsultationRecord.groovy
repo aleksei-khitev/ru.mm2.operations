@@ -16,7 +16,7 @@ class ConsultationRecord {
     Boolean isConfirm
     Date lastUpdated
     String updatedUser
-    static transients = ['formattedPhone']
+    static transients = ['formattedPhone','formattedConfirm']
     String getFormattedPhone(){
         if(client_contact.size()==7){
             "(812) ${client_contact.substring(0,3)} - ${client_contact.substring(3,5)} - ${client_contact.substring(5,7)}"
@@ -24,6 +24,13 @@ class ConsultationRecord {
             "Неправильно набран номер. длинна может быть либо 7, либо 10 цифр"
         }else{
             "+7 (${client_contact.substring(0,3)}) ${client_contact.substring(3,6)} - ${client_contact.substring(6,8)} - ${client_contact.substring(8,10)}"
+        }
+    }
+    String getFormattedConfirm(){
+        if(isConfirm){
+            "Да"
+        }else{
+            "нет"
         }
     }
     static belongsTo = [doctor:Doctor]
