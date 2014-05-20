@@ -1,5 +1,5 @@
 <%@ page import="ru.mm2.operations.ConsultationRecord" %>
-
+<calendar:resources lang="en" theme="green"/>
 <div class="fieldcontain ${hasErrors(bean: consultationRecordInstance, field: 'fio', 'error')} ">
     <label for="fio">
         <g:message code="consultationRecord.fio.label" default="ФИО пациента" />
@@ -22,10 +22,11 @@
         <span class="required-indicator">*</span>
     </label>
     <g:if test="${date}">
-        <g:datePicker name="date_time"  value="${date}" relativeYears="[0..10]" />
+        <calendar:datePicker name="date_time"  defaultValue="${date}" dateFormat="%d.%m.%Y %H:%M" showTime="true"/>
     </g:if>
     <g:else>
-        <g:datePicker name="date_time"  value="${consultationRecordInstance?.date_time}" relativeYears="[0..10]" />
+        <g:datePicker name="date_time"  value="${consultationRecordInstance?.date_time}" relativeYears="[0..10]"/>
+        <calendar:resources lang="en" theme="tiger"/>
     </g:else>
 </div>
 

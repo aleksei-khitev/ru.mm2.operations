@@ -20,6 +20,7 @@
           <root url="file://$MODULE_DIR$/target/work/plugins/export-1.5/web-app" relative="/" />
           <root url="file://$MODULE_DIR$/target/work/plugins/google-visualization-0.6.2/web-app" relative="/" />
           <root url="file://$MODULE_DIR$/target/work/plugins/google-visualization-0.6.2/grails-app/views" relative="/" />
+          <root url="file://$MODULE_DIR$/target/work/plugins/calendar-1.2.1/web-app" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -45,6 +46,9 @@
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/cache-1.1.1/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/cache-1.1.1/grails-app/services" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/cache-1.1.1/grails-app/taglib" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/target/work/plugins/calendar-1.2.1">
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/calendar-1.2.1/grails-app/taglib" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$/target/work/plugins/compass-sass-0.7">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/compass-sass-0.7/src/groovy" isTestSource="false" />
@@ -172,6 +176,10 @@
           <root url="jar://$MAVEN_REPOSITORY$/javax/mail/mail/1.4.3/mail-1.4.3.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.2.0.RC1/spring-security-web-3.2.0.RC1.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.0.RC1/spring-security-core-3.2.0.RC1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/net/sf/opencsv/opencsv/1.8/opencsv-1.8.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/com/ibm/icu/icu4j/4.0.1/icu4j-4.0.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/r07/guava-r07.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/com/google/visualization/visualization-datasource/1.1.1/visualization-datasource-1.1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
