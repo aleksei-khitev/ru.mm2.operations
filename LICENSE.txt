@@ -1,5 +1,5 @@
 ru.mm2.operations is an application for consultations and operations managing.
-Copyright (c) 2014 Aleksei Khitevi (Хитёв Алексей Юрьевич), Guilnara Gamidova (Гюльнара Гамидова Вилаятовна).
+Copyright (c) 2014 Aleksei Khitevi (Хитёв Алексей Юрьевич), Guilnara Gamidova (Гамидова Гюльнара Вилаятовна).
 
 ru.mm2.operations is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
